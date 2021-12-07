@@ -1,0 +1,37 @@
+.Container {
+  height: 100%;
+  min-height: 100vh;
+  background-image: url('https://signin.intra.42.fr/assets/background_login-a4e0666f73c02f025f590b474b394fd86e1cae20e95261a6e4862c2d0faa1b04.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: black; */
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.title-box {
+  margin: 5%;
+}
+
+.title {
+  width: 100%;
+  color: white;
+}
+
+.ui.card.card_width {
+  margin: 10px 0;
+  width: 90%;
+  margin: auto;
+}
+
+.ui.button.add-club-button {
+  position: sticky;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
