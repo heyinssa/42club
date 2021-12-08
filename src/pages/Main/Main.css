@@ -32,6 +32,22 @@
   margin: 5%;
 }
 
+.subtitle {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.listitem {
+  margin: 2% 0;
+}
+
+.clubinfo {
+  border: 0px solid;
+  width: 100%;
+  height: max-content;
+}
+
 .body-box {
   background: white;
   border-radius: 15px;
@@ -45,7 +61,6 @@
 }
 
 .ui.card.card_width {
-  margin: 10px 0;
   width: 90%;
   margin: auto;
 }

@@ -2,12 +2,22 @@ import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import { Card, Icon, Image, List } from 'semantic-ui-react';
 import { useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
 import './Main.css';
 
 const ClubDetail = () => {
+  const [clubinfo, setClubinfo] = useState([]);
   const location = useLocation();
 
   console.log(location);
+
+  const handleClubInfo = (event) => {
+    setClubinfo(event.target.value);
+  };
+
+  useEffect(() => {
+    setClubinfo(location.state.club.club_info);
+  }, []);
 
   return (
     <div className="Container">
@@ -27,7 +37,17 @@ const ClubDetail = () => {
             </List.Item>
             <List.Item>
               <List.Icon name="mail" />
-              <List.Content>{location.state.club.club_info}</List.Content>
+
+              <List.Content>
+                {/* {location.state.club.club_info} */}
+                <textarea
+                  className="clubinfo"
+                  type="text"
+                  name="club_info"
+                  value={clubinfo}
+                  onChange={handleClubInfo}
+                />
+              </List.Content>
             </List.Item>
             <List.Item>
               <List.Icon name="linkify" />

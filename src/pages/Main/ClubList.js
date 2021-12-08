@@ -13,7 +13,6 @@ const ClubList = ({ clubList }) => {
       {clubList.map((e, index) => {
         const clubDetailUrl = `/clubdetail`;
         delete e._sheet;
-        console.log(e);
         return (
           <Link
             key={e.club_name}
@@ -34,7 +33,7 @@ const ClubList = ({ clubList }) => {
               // },
             }}
           >
-            <List.Item>
+            <List.Item className="listitem">
               <Card className="card_width" onClick={handleCardTabbed}>
                 {/* <Image src="/images/avatar/large/matthew.png" wrapped ui={false} /> */}
                 <Card.Content>

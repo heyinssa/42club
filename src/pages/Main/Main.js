@@ -9,6 +9,9 @@ import './Main.css';
 
 const Main = () => {
   const [clubList, setClubList] = useState([]);
+  const [clubList1, setClubList1] = useState([]);
+  const [clubList2, setClubList2] = useState([]);
+  const [clubList3, setClubList3] = useState([]);
 
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
@@ -26,11 +29,36 @@ const Main = () => {
         console.error('Error: ', e);
       }
     };
+
+    const divideClubList = async (rows) => {
+      setClubList1(
+        rows.filter((result) => {
+          console.log(result.club_state);
+          return result.club_state == '상시 모집';
+        })
+      );
+      setClubList2(
+        rows.filter((result) => {
+          console.log(result.club_state);
+          return result.club_state == '기수 모집';
+        })
+      );
+      setClubList3(
+        rows.filter((result) => {
+          console.log(result.club_state);
+          return (
+            result.club_state != '상시 모집' && result.club_state != '기수 모집'
+          );
+        })
+      );
+    };
+
     const fetchClubList = async () => {
       try {
         const sheet = _doc.sheetsByIndex[0];
         const rows = await sheet.getRows();
         setClubList(rows);
+        await divideClubList(rows);
       } catch (e) {
         console.error('Error: ', e);
       }
@@ -38,6 +66,7 @@ const Main = () => {
 
     await authGoogleSheet();
     await fetchClubList();
+    console.log(clubList1);
   };
 
   useEffect(() => {
@@ -51,7 +80,18 @@ const Main = () => {
           <h1 className="title"> 42 Club List </h1>
         </div>
       </div>{' '}
-      <ClubList clubList={clubList} />
+      <div>
+        <h1 className="subtitle"> 상시 모집 </h1>
+        <ClubList clubList={clubList1} />
+      </div>
+      <div>
+        <h1 className="subtitle"> 기수 모집 </h1>
+        <ClubList clubList={clubList2} />
+      </div>
+      <div>
+        <h1 className="subtitle"> 기타 </h1>
+        <ClubList clubList={clubList3} />
+      </div>
       <Link to="addclub">
         <Button className="add-club-button">
           <Button.Content visible> 동아리 추가 </Button.Content>
