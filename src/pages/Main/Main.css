@@ -33,8 +33,9 @@
 }
 
 .subtitle {
-  width: 100%;
-  text-align: center;
+  width: 90%;
+  margin: auto;
+  text-align: left;
   color: white;
 }
 
