@@ -1,6 +1,7 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
-import { Card, Icon, Image, List } from 'semantic-ui-react';
+import { Card, Icon, Button, List, GridRow } from 'semantic-ui-react';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import './Main.css';
@@ -13,6 +14,13 @@ const ClubDetail = () => {
 
   const handleClubInfo = (event) => {
     setClubinfo(event.target.value);
+  };
+
+  const handleSaveClubButton = async (event) => {
+    console.log(location.state.club);
+    console.log('save start');
+    // await clubinfo.save();
+    console.log('save done');
   };
 
   useEffect(() => {
@@ -63,6 +71,9 @@ const ClubDetail = () => {
           <div>{location.state.club.club_state}</div>
           <div>{location.state.club.club_member}</div>
         </div>
+        <Button className="save-club-button" onClick={handleSaveClubButton}>
+          <Button.Content visible> Save </Button.Content>
+        </Button>
       </div>
     </div>
   );

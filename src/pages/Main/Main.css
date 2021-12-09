@@ -71,3 +71,9 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.ui.button.save-club-button {
+  font-size: large;
+  background: rgb(16, 136, 12);
+  color: white;
+}
