@@ -50,6 +50,7 @@
 }
 
 .body-box {
+  width: 90%;
   background: white;
   border-radius: 15px;
   margin: 5%;
@@ -77,4 +78,21 @@
   font-size: large;
   background: rgb(16, 136, 12);
   color: white;
+}
+
+.loader-box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  background: #00000077;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
 }

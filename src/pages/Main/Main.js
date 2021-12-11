@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
+import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import './Main.css';
 
 const Main = () => {
   const [clubList, setClubList] = useState([]);
+  const [isSave, setIsSave] = useState('false');
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
@@ -58,20 +60,18 @@ const Main = () => {
       try {
         const sheet = _doc.sheetsByIndex[0];
         const rows = await sheet.getRows();
-        rows[0].club_name = '42JS';
-        await rows[0].save();
+
         await divideClubList(rows);
-        clubList1[0].club_name = '4242';
-        await clubList1[0].save();
-        console.log(rows[0]);
-        console.log(clubList1[0]);
       } catch (e) {
         console.error('Error: ', e);
       }
     };
-
+    setIsSave(false);
+    console.log('init start');
     await authGoogleSheet();
     await fetchClubList();
+    setIsSave(true);
+    console.log('init done');
   };
 
   useEffect(() => {
@@ -80,6 +80,17 @@ const Main = () => {
 
   return (
     <div className="Container">
+      {!isSave && (
+        <div className="loader-box">
+          <Loader
+            className="loader"
+            type="Puff"
+            color="#00BFFF"
+            height={80}
+            width={80}
+          />
+        </div>
+      )}
       <div className="Main">
         <div className="title-box">
           <h1 className="title"> 42 Club List </h1>

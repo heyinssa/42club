@@ -11,26 +11,24 @@ const ClubList = ({ clubList }) => {
   return (
     <List>
       {clubList.map((e, index) => {
-        const clubDetailUrl = `/clubdetail`;
-        delete e._sheet;
+        const clubDetailUrl = `/clubdetail/${e._rowNumber}`;
+        console.log(e);
         return (
           <Link
             key={e.club_name}
             to={clubDetailUrl}
             state={{
-              club: e,
-              // club:
-              // {
-              //   club_name: e.club_name,
-              //   club_info: e.club_info,
-              //   club_active_info: e.club_active_info,
-              //   club_invite_info: e.club_invite_info,
-              //   club_invite_link: e.club_invite_link,
-              //   club_master: e.club_master,
-              //   club_member: e.club_member,
-              //   club_state: e.club_state,
-              //   index: e.index,
-              // },
+              club: {
+                club_name: e.club_name,
+                club_info: e.club_info,
+                club_active_info: e.club_active_info,
+                club_invite_info: e.club_invite_info,
+                club_invite_link: e.club_invite_link,
+                club_master: e.club_master,
+                club_member: e.club_member,
+                club_state: e.club_state,
+                index: e.index,
+              },
             }}
           >
             <List.Item className="listitem">

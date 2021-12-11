@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/addclub" element={<AddClubForm />} />
-        <Route path="/clubdetail" element={<ClubDetail />} />
+        <Route path="/clubdetail/:row" element={<ClubDetail />} />
       </Routes>
     </BrowserRouter>
   );
