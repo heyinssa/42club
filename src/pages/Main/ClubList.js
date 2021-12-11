@@ -11,12 +11,12 @@ const ClubList = ({ clubList }) => {
 
   const styles = {
     pin_container: {
-      margin: 0,
-      padding: 0,
-      width: '90vw',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, 300px)',
-      gridAutoRows: '10px',
+      // margin: 0,
+      // padding: 0,
+      // width: '90vw',
+      // display: 'grid',
+      // gridTemplateColumns: 'repeat(auto-fill, 300px)',
+      // gridAutoRows: '10px',
       // position: 'absolute',
       // left: '50%',
       // transform: 'translateX(-50%)',

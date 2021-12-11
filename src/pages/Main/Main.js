@@ -7,6 +7,7 @@ import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { ClubDetail } from '..';
+import background from '../../images/background.png';
 import './Main.css';
 
 const Main = () => {
@@ -19,6 +20,7 @@ const Main = () => {
   // var clubList1;
   // let clubList2;
   // let clubList3;
+
   const handleIsClicked = () => {
     setIsClicked(true);
   };
@@ -84,8 +86,13 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="Container">
-      <div className="Container">
+    <div
+      className="Container"
+      style={{
+        backgroundImage: `url(${background})`,
+      }}
+    >
+      <div className="blur">
         {isClicked && (
           <div className="modal">
             <ClubDetail handleIsClicked={handleIsClicked} />

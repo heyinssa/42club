@@ -63,7 +63,7 @@ const ClubDetail = ({ handleIsClicked }) => {
   // }, []);
 
   return (
-    <div className="Container">
+    <div className="temp">
       {!isSave && (
         <div className="loader-box">
           <Loader
@@ -76,7 +76,7 @@ const ClubDetail = ({ handleIsClicked }) => {
         </div>
       )}
       <div className="clubdetail">
-        <div className="title-box">
+        {/* <div className="title-box">
           <h1 className="title">{location.state.club.club_name}</h1>
         </div>
         <div className="body-box">
@@ -93,7 +93,6 @@ const ClubDetail = ({ handleIsClicked }) => {
               <List.Icon name="mail" />
 
               <List.Content>
-                {/* {location.state.club.club_info} */}
                 <textarea
                   className="clubinfo"
                   type="text"
@@ -120,6 +119,7 @@ const ClubDetail = ({ handleIsClicked }) => {
         <Button className="save-club-button" onClick={handleSaveClubButton}>
           <Button.Content visible> Save </Button.Content>
         </Button>
+         */}
       </div>
     </div>
   );

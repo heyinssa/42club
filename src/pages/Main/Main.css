@@ -1,9 +1,17 @@
 .Container {
   height: 100%;
   min-height: 100vh;
-  background-image: url('https://cdn.pixabay.com/photo/2016/04/06/10/08/pink-1311251_1280.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-image: url('https://cdn.pixabay.com/photo/2016/04/06/10/08/pink-1311251_1280.jpg'); */
+  background-repeat: repeat;
+  /* background-size: cover; */
+  background-position: center;
+}
+.blur {
+  height: 100%;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
 }
 
 .Main {
