@@ -43,7 +43,14 @@
 }
 
 .title-box {
-  margin: 5%;
+  margin: auto;
+}
+
+.title {
+  height: 100px;
+  width: 100%;
+  margin: auto;
+  line-height: 100px;
 }
 
 .subtitle {
@@ -82,9 +89,6 @@
   margin: 5%;
   padding: 3%;
   box-shadow: 1px 1px 1px gray;
-}
-.title {
-  width: 100%;
 }
 
 .ui.card.card_width {
