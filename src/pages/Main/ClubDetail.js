@@ -1,6 +1,5 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
-import { Route } from 'react-router-dom';
 import { Button, List } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
@@ -11,57 +10,57 @@ import Loader from 'react-loader-spinner';
 
 import './Main.css';
 
-const ClubDetail = ({ match }) => {
+const ClubDetail = ({ handleIsClicked }) => {
   const [club, setClub] = useState([]);
   const [isSave, setIsSave] = useState('false');
-  const [row, setRow] = useState([]);
-  const location = useLocation();
-  const params = useParams();
+  // const [row, setRow] = useState([]);
+  // const location = useLocation();
+  // const params = useParams();
 
   const handleClubInfo = (event) => {
     // setClubinfo(event.target.value);
   };
 
   const handleSaveClubButton = async (event) => {
-    setIsSave(false);
-    console.log('save start');
-    await row.save();
-    setIsSave(true);
-    console.log('save done');
+    // setIsSave(false);
+    // console.log('save start');
+    // await row.save();
+    // setIsSave(true);
+    // console.log('save done');
   };
 
-  const init = async () => {
-    const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
-    const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+  // const init = async () => {
+  //   const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+  //   const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
-    const authGoogleSheet = async () => {
-      try {
-        await _doc.useServiceAccountAuth(gs_creds);
-        await _doc.loadInfo();
-      } catch (e) {
-        console.error('Error: ', e);
-      }
-    };
+  //   const authGoogleSheet = async () => {
+  //     try {
+  //       await _doc.useServiceAccountAuth(gs_creds);
+  //       await _doc.loadInfo();
+  //     } catch (e) {
+  //       console.error('Error: ', e);
+  //     }
+  //   };
 
-    const fetchClubList = async () => {
-      try {
-        const sheet = _doc.sheetsByIndex[0];
-        const rows = await sheet.getRows();
-        setRow(rows[params.row - 2]);
-      } catch (e) {
-        console.error('Error: ', e);
-      }
-    };
+  //   const fetchClubList = async () => {
+  //     try {
+  //       const sheet = _doc.sheetsByIndex[0];
+  //       const rows = await sheet.getRows();
+  //       setRow(rows[params.row - 2]);
+  //     } catch (e) {
+  //       console.error('Error: ', e);
+  //     }
+  //   };
 
-    await authGoogleSheet();
-    await fetchClubList();
-  };
+  //   await authGoogleSheet();
+  //   await fetchClubList();
+  // };
 
-  useEffect(() => {
-    init();
-    setClub(location.state.club);
-    console.log(params);
-  }, []);
+  // useEffect(() => {
+  //   init();
+  //   setClub(location.state.club);
+  //   console.log(params);
+  // }, []);
 
   return (
     <div className="Container">
