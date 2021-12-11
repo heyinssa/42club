@@ -91,28 +91,32 @@ const Main = () => {
           />
         </div>
       )}
-      <div className="Main">
-        <div className="title-box">
-          <h1 className="title"> 42 Club List </h1>
+      {isSave && (
+        <div>
+          <div className="Main">
+            <div className="title-box">
+              <h1 className="title"> 42 Club List </h1>
+            </div>
+            <div>
+              <h1 className="subtitle"> 상시 모집 </h1>
+              <ClubList clubList={clubList1} />
+            </div>
+            <div>
+              <h1 className="subtitle"> 기수 모집 </h1>
+              <ClubList clubList={clubList2} />
+            </div>
+            <div>
+              <h1 className="subtitle"> 기타 </h1>
+              <ClubList clubList={clubList3} />
+            </div>
+            <Link to="addclub">
+              <Button className="add-club-button">
+                <Button.Content visible> 동아리 추가 </Button.Content>
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>{' '}
-      <div>
-        <h1 className="subtitle"> 상시 모집 </h1>
-        <ClubList clubList={clubList1} />
-      </div>
-      <div>
-        <h1 className="subtitle"> 기수 모집 </h1>
-        <ClubList clubList={clubList2} />
-      </div>
-      <div>
-        <h1 className="subtitle"> 기타 </h1>
-        <ClubList clubList={clubList3} />
-      </div>
-      <Link to="addclub">
-        <Button className="add-club-button">
-          <Button.Content visible> 동아리 추가 </Button.Content>
-        </Button>
-      </Link>
+      )}
     </div>
   );
 };
