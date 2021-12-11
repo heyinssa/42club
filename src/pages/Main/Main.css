@@ -50,7 +50,6 @@
   width: 100%;
   margin: auto;
   text-align: left;
-  color: white;
 }
 
 .listitem {
@@ -58,6 +57,7 @@
 }
 
 .card-box {
+  padding: 15px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -85,7 +85,6 @@
 }
 .title {
   width: 100%;
-  color: white;
 }
 
 .ui.card.card_width {

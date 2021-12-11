@@ -68,8 +68,12 @@ const ClubList = ({ clubList }) => {
                 <div className="card-box">
                   <div>{e.club_name}</div>
                   <div>
-                    <div>{e.club_name}</div>
-                    <div>{e.club_name}</div>
+                    <div>{e.club_info}</div>
+                    <div>Started in 2020</div>
+                    <div>
+                      <Icon name="user" />
+                      22 Friends
+                    </div>
                   </div>
                 </div>
                 {/* <Card className="card_width" onClick={handleCardTabbed}>
