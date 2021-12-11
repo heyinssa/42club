@@ -6,6 +6,7 @@
   /* background-size: cover; */
   background-position: center;
 }
+
 .blur {
   height: 100%;
   min-height: 100vh;
@@ -83,7 +84,7 @@
 }
 
 .body-box {
-  width: 90%;
+  width: 50%;
   background: white;
   border-radius: 15px;
   margin: 5%;
@@ -125,4 +126,8 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;
+}
+
+.hidden {
+  display: none;
 }

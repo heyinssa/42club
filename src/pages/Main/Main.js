@@ -93,11 +93,11 @@ const Main = () => {
       }}
     >
       <div className="blur">
-        {isClicked && (
+        {/* {isClicked && (
           <div className="modal">
             <ClubDetail handleIsClicked={handleIsClicked} />
           </div>
-        )}
+        )} */}
         {!isSave && (
           <div className="loader-box">
             <Loader

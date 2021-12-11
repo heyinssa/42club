@@ -7,14 +7,20 @@ import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Loader from 'react-loader-spinner';
-
+import background from '../../images/background.png';
 import './Main.css';
+
+/* global history */
+/* global location */
+/* global window */
+
+/* eslint no-restricted-globals: ["off"] */
 
 const ClubDetail = ({ handleIsClicked }) => {
   const [club, setClub] = useState([]);
   const [isSave, setIsSave] = useState('false');
   // const [row, setRow] = useState([]);
-  // const location = useLocation();
+  const location = useLocation();
   // const params = useParams();
 
   const handleClubInfo = (event) => {
@@ -26,7 +32,7 @@ const ClubDetail = ({ handleIsClicked }) => {
     // console.log('save start');
     // await row.save();
     // setIsSave(true);
-    // console.log('save done');
+    history.back();
   };
 
   // const init = async () => {
@@ -63,6 +69,7 @@ const ClubDetail = ({ handleIsClicked }) => {
   // }, []);
 
   return (
+    <div className="Container" style={{ backgroundImage: `url(${background})`, }}>
     <div className="temp">
       {!isSave && (
         <div className="loader-box">
@@ -76,7 +83,7 @@ const ClubDetail = ({ handleIsClicked }) => {
         </div>
       )}
       <div className="clubdetail">
-        {/* <div className="title-box">
+        <div className="title-box">
           <h1 className="title">{location.state.club.club_name}</h1>
         </div>
         <div className="body-box">
@@ -119,8 +126,8 @@ const ClubDetail = ({ handleIsClicked }) => {
         <Button className="save-club-button" onClick={handleSaveClubButton}>
           <Button.Content visible> Save </Button.Content>
         </Button>
-         */}
       </div>
+    </div>
     </div>
   );
 };
