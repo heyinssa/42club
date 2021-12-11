@@ -65,8 +65,14 @@ const ClubList = ({ clubList }) => {
               }}
             >
               <List.Item className="listitem">
-                <Card className="card_width" onClick={handleCardTabbed}>
-                  {/* <Image src="/images/avatar/large/matthew.png" wrapped ui={false} /> */}
+                <div className="card-box">
+                  <div>{e.club_name}</div>
+                  <div>
+                    <div>{e.club_name}</div>
+                    <div>{e.club_name}</div>
+                  </div>
+                </div>
+                {/* <Card className="card_width" onClick={handleCardTabbed}>
                   <Card.Content>
                     <Card.Header>{e.club_name}</Card.Header>
                     <Card.Meta>
@@ -80,7 +86,7 @@ const ClubList = ({ clubList }) => {
                       22 Friends
                     </a>
                   </Card.Content>
-                </Card>
+                </Card> */}
               </List.Item>
             </Link>
           );
