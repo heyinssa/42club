@@ -17,6 +17,7 @@ const Main = () => {
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
+
   // var clubList1;
   // let clubList2;
   // let clubList3;
@@ -93,6 +94,9 @@ const Main = () => {
       }}
     >
       <div className="blur">
+        <div className="header">
+          <h1 className="title"> 42 Club List </h1>
+        </div>
         {/* {isClicked && (
           <div className="modal">
             <ClubDetail handleIsClicked={handleIsClicked} />
@@ -110,29 +114,24 @@ const Main = () => {
           </div>
         )}
         {isSave && (
-          <div>
-            <div className="Main">
-              <div className="title-box">
-                <h1 className="title"> 42 Club List </h1>
-              </div>
-              <div>
-                <h1 className="subtitle"> 상시 모집 </h1>
-                <ClubList clubList={clubList1} />
-              </div>
-              <div>
-                <h1 className="subtitle"> 기수 모집 </h1>
-                <ClubList clubList={clubList2} />
-              </div>
-              <div>
-                <h1 className="subtitle"> 기타 </h1>
-                <ClubList clubList={clubList3} />
-              </div>
-              <Link to="addclub">
-                <Button className="add-club-button">
-                  <Button.Content visible> 동아리 추가 </Button.Content>
-                </Button>
-              </Link>
+          <div className="Main">
+            <div>
+              <h3 className="subtitle sticky"> 상시 모집 </h3>
+              <ClubList clubList={clubList1} />
             </div>
+            <div>
+              <h3 className="subtitle sticky"> 기수 모집 </h3>
+              <ClubList clubList={clubList2} />
+            </div>
+            <div>
+              <h3 className="subtitle sticky"> 기타 </h3>
+              <ClubList clubList={clubList3} />
+            </div>
+            <Link to="addclub">
+              <Button className="add-club-button">
+                <Button.Content visible> 동아리 추가 </Button.Content>
+              </Button>
+            </Link>
           </div>
         )}
       </div>

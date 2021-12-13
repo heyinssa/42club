@@ -1,53 +1,57 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Card, Icon, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Animated } from 'react-animated-css';
 import './Main.css';
 
 const ClubList = ({ clubList }) => {
+  // const containerRef = useRef(null);
+  let containerRef = useRef([]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const callbackFunction = (entries) => {
+    const [entry] = entries;
+    // console.log(entry.isIntersecting);
+    setIsVisible(entry.isIntersecting);
+  };
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(callbackFunction, options);
+    if (containerRef.current) {
+      containerRef.current.forEach((ref, index) => {
+        // if (index == 0) console.log(index, ref);
+        observer.observe(ref);
+      });
+    }
+    return () => {
+      containerRef.current.forEach((ref) => {
+        observer.unobserve(ref);
+      });
+    };
+  }, [containerRef, options]);
+
   const handleCardTabbed = (index) => {
     console.log(index);
   };
 
-  const styles = {
-    pin_container: {
-      // margin: 0,
-      // padding: 0,
-      // width: '90vw',
-      // display: 'grid',
-      // gridTemplateColumns: 'repeat(auto-fill, 300px)',
-      // gridAutoRows: '10px',
-      // position: 'absolute',
-      // left: '50%',
-      // transform: 'translateX(-50%)',
-      // justifyContent: 'center',
-    },
-    card: {
-      margin: '15px 10px',
-      padding: 0,
-      borderRadius: '16px',
-      // backgroundColor: 'red',
-      gridRowEnd: 'span 45',
-    },
-    // small: {
-    //   gridRowEnd: 'span 26',
-    // },
-    // medium: {
-    //   gridRowEnd: 'span 33',
-    // },
-    // large: {
-    //   gridRowEnd: 'span 45',
-    // },
-  };
-
   return (
     <>
-      <List className="display" style={{ ...styles.pin_container }}>
+      <List className="display">
         {clubList.map((e, index) => {
           const clubDetailUrl = `/clubdetail/${e._rowNumber}`;
-          // console.log(e);
           return (
             <Link
+              ref={(el) => {
+                console.log(index, el);
+                containerRef.current[e._rowNumber - 2] = el;
+              }}
               key={e.club_name}
               to={clubDetailUrl}
               state={{
@@ -65,19 +69,28 @@ const ClubList = ({ clubList }) => {
               }}
             >
               {/* <List.Item className="listitem"> */}
-              <div className="card-box">
-                <div>
-                  <h2>{e.club_name}</h2>
-                </div>
-                <div>
-                  <div>{e.club_info}</div>
-                  <div>Started in 2020</div>
+              <Animated
+                animationIn="fadeIn"
+                animationOut="fadeOut"
+                isVisible={isVisible ? false : true}
+              >
+                <div className="card-box">
                   <div>
-                    <Icon name="user" />
-                    22 Friends
+                    <h2>{isVisible ? 'yes' : 'nono'}</h2>
+                  </div>
+                  <div>{e.club_info}</div>
+                  <div className="card-box-desc">
+                    <div>
+                      <Icon name="code" />
+                      Started in 2020
+                    </div>
+                    <div>
+                      <Icon name="user" />
+                      22 Friends
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Animated>
               {/* <Card className="card_width" onClick={handleCardTabbed}>
                   <Card.Content>
                     <Card.Header>{e.club_name}</Card.Header>

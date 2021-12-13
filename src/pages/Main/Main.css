@@ -21,6 +21,23 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
+  /* overflow-y: scroll; */
+  /* margin-top: 60px; */
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
 }
 
 .clubdetail {
@@ -43,21 +60,40 @@
   color: white;
 }
 
-.title-box {
-  margin: auto;
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  /* background: white; */
+  z-index: 9;
+  box-shadow: 0px 3px 4px #00000020;
+  /* margin: auto; */
 }
 
 .title {
-  height: 80px;
-  width: 100%;
+  text-align: center;
+  height: 60px;
   margin: auto;
-  line-height: 80px;
+  line-height: 60px;
+  color: rgb(53, 53, 53);
+  z-index: 9;
 }
 
 .subtitle {
-  width: 100%;
+  /* width: 100%; */
   margin: auto;
-  text-align: left;
+  text-align: right;
+  color: rgb(53, 53, 53);
+  z-index: 9;
+}
+
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .sticky {
+    position: -webkit-sticky; /* 사파리 브라우저 지원 */
+    position: sticky;
+    top: 24px;
+  }
 }
 
 .listitem {
@@ -68,13 +104,14 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   /* justify-content: center; */
   /* align-items: center; */
+  box-shadow: 1px 1px 4px #00000015;
   height: auto;
-  width: 90vh;
+  width: 90vw;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
-  z-index: 7;
   color: black;
   margin: 10px 0;
 }
@@ -82,6 +119,10 @@
 .card-box-title {
   width: 100%;
   text-align: left;
+}
+
+.card-box-desc {
+  color: rgb(121, 121, 121);
 }
 
 .clubinfo {
