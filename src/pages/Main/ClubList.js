@@ -64,19 +64,21 @@ const ClubList = ({ clubList }) => {
                 },
               }}
             >
-              <List.Item className="listitem">
-                <div className="card-box">
-                  <div>{e.club_name}</div>
+              {/* <List.Item className="listitem"> */}
+              <div className="card-box">
+                <div>
+                  <h2>{e.club_name}</h2>
+                </div>
+                <div>
+                  <div>{e.club_info}</div>
+                  <div>Started in 2020</div>
                   <div>
-                    <div>{e.club_info}</div>
-                    <div>Started in 2020</div>
-                    <div>
-                      <Icon name="user" />
-                      22 Friends
-                    </div>
+                    <Icon name="user" />
+                    22 Friends
                   </div>
                 </div>
-                {/* <Card className="card_width" onClick={handleCardTabbed}>
+              </div>
+              {/* <Card className="card_width" onClick={handleCardTabbed}>
                   <Card.Content>
                     <Card.Header>{e.club_name}</Card.Header>
                     <Card.Meta>
@@ -91,7 +93,7 @@ const ClubList = ({ clubList }) => {
                     </a>
                   </Card.Content>
                 </Card> */}
-              </List.Item>
+              {/* </List.Item> */}
             </Link>
           );
         })}

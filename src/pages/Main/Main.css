@@ -31,8 +31,8 @@
 }
 
 .ui.list.display {
-  /* margin: 0; */
-  /* padding: 0; */
+  margin: 0;
+  padding: 0;
 }
 
 .addclub {
@@ -69,12 +69,19 @@
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  align-items: center;
+  /* align-items: center; */
   height: auto;
-  width: 300px;
+  width: 90vh;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   z-index: 7;
+  color: black;
+  margin: 10px 0;
+}
+
+.card-box-title {
+  width: 100%;
+  text-align: left;
 }
 
 .clubinfo {
