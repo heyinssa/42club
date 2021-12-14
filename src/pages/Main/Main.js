@@ -14,6 +14,7 @@ import './Main.css';
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
+  const [rows, setRows] = useState([]);
   // const [isModalVisible, setIsModalVisible] = useState(false);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
@@ -29,58 +30,54 @@ const Main = () => {
       try {
         await _doc.useServiceAccountAuth(gs_creds);
         await _doc.loadInfo();
-        // const sheet = doc.sheetsById[SHEET_ID];
-        // const result = await sheet.addRow(row);
       } catch (e) {
         console.error('Error: ', e);
       }
-    };
-
-    const divideClubList = async (rows) => {
-      setClubList1(
-        rows.filter((result) => {
-          return (
-            result.club_state == '상시 모집' &&
-            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
-          );
-        })
-      );
-
-      setClubList2(
-        rows.filter((result) => {
-          return (
-            result.club_state == '기수 모집' &&
-            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
-          );
-        })
-      );
-      setClubList3(
-        rows.filter((result) => {
-          return (
-            result.club_state != '상시 모집' &&
-            result.club_state != '기수 모집' &&
-            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
-          );
-        })
-      );
     };
 
     const fetchClubList = async () => {
       try {
         const sheet = _doc.sheetsByIndex[0];
-        const rows = await sheet.getRows();
-
-        await divideClubList(rows);
+        const _rows = await sheet.getRows();
+        setRows(_rows);
+        divideClubList(_rows);
       } catch (e) {
         console.error('Error: ', e);
       }
     };
-    setIsSave(false);
-    console.log('init start');
+
     await authGoogleSheet();
     await fetchClubList();
-    setIsSave(true);
-    console.log('init done');
+  };
+
+  const divideClubList = async (rows) => {
+    setClubList1(
+      rows.filter((result) => {
+        return (
+          result.club_state == '상시 모집' &&
+          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+        );
+      })
+    );
+
+    setClubList2(
+      rows.filter((result) => {
+        return (
+          result.club_state == '기수 모집' &&
+          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+        );
+      })
+    );
+
+    setClubList3(
+      rows.filter((result) => {
+        return (
+          result.club_state != '상시 모집' &&
+          result.club_state != '기수 모집' &&
+          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+        );
+      })
+    );
   };
 
   const handleClubTabbed = () => {
@@ -92,9 +89,23 @@ const Main = () => {
     setIsClubTabbed(false);
   };
 
+  const handleSearchButtonTabbed = () => {
+    setIsSave(false);
+    divideClubList(rows);
+    setIsSave(true);
+    console.log(searchText);
+  };
+
+  const handleSearchTextChange = (e) => {
+    setIsSave(false);
+    divideClubList(rows);
+    setIsSave(true);
+  };
+
   useEffect(() => {
+    setIsSave(false);
     init();
-    setSearchText('42');
+    setIsSave(true);
   }, []);
 
   return (
@@ -122,14 +133,38 @@ const Main = () => {
           )}
           {isSave && (
             <div className="Main">
-              <div>
-                <h3 className="subtitle sticky"> 상시 모집 </h3>
-                <ClubList
-                  clubList={clubList1}
-                  setClub={setClub}
-                  handleClubTabbed={handleClubTabbed}
-                />
+              <div className="wrap">
+                <div className="search">
+                  <input
+                    type="text"
+                    className="searchTerm"
+                    onChange={(e) => {
+                      console.log(e.target.value);
+                      setSearchText(e.target.value);
+                      handleSearchTextChange(e);
+                    }}
+                    value={searchText}
+                    placeholder="input club name"
+                  />
+                  <button
+                    type="submit"
+                    className="searchButton"
+                    onClick={handleSearchButtonTabbed}
+                  >
+                    <Icon name="search" />
+                  </button>
+                </div>
               </div>
+              {clubList1.length != 0 && (
+                <div>
+                  <h3 className="subtitle sticky"> 상시 모집 </h3>
+                  <ClubList
+                    clubList={clubList1}
+                    setClub={setClub}
+                    handleClubTabbed={handleClubTabbed}
+                  />
+                </div>
+              )}
               <div>
                 <h3 className="subtitle sticky"> 기수 모집 </h3>
                 <ClubList
