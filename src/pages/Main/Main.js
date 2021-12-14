@@ -80,6 +80,7 @@ const Main = () => {
   };
 
   const handleCloseButtonTabbed = () => {
+    console.log(isClubTabbed);
     setIsClubTabbed(false);
   };
 
@@ -98,14 +99,14 @@ const Main = () => {
         <div className="header">
           <h1 className="title"> 42 Club List </h1>
         </div>
-        {isClubTabbed && (
-          <div className="modal">
-            <ClubDetail
-              club={club}
-              handleCloseButtonTabbed={handleCloseButtonTabbed}
-            />
-          </div>
-        )}
+        {/* {isClubTabbed && ( */}
+        <div className={isClubTabbed ? 'modal-visible' : 'modal-hide'}>
+          <ClubDetail
+            club={club}
+            handleCloseButtonTabbed={handleCloseButtonTabbed}
+          />
+        </div>
+        {/* )} */}
         {!isSave && (
           <div className="loader-box">
             <Loader

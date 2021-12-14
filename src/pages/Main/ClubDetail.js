@@ -11,20 +11,19 @@ import background from '../../images/background.png';
 import './Main.css';
 
 const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
-  const [isSave, setIsSave] = useState('false');
-  // const [row, setRow] = useState([]);
+  const [isSave, setIsSave] = useState(false);
   const location = useLocation();
-  // const params = useParams();
 
   const handleClubInfo = (event) => {
     // setClubinfo(event.target.value);
   };
 
   const handleSaveClubButton = async (event) => {
-    // setIsSave(false);
-    // console.log('save start');
-    // await row.save();
-    // setIsSave(true);
+    handleCloseButtonTabbed();
+    setIsSave(false);
+    console.log('save start');
+    await club.save();
+    setIsSave(true);
   };
 
   // const init = async () => {
@@ -54,61 +53,54 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
   //   await fetchClubList();
   // };
 
-  // useEffect(() => {
-  //   init();
-  //   setClub(club);
-  //   console.log(params);
-  // }, []);
+  useEffect(() => {
+    console.log(club);
+  }, []);
 
   return (
-    <div
-      className="Container"
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <div className="clubdetail">
-        <button onClick={handleCloseButtonTabbed}>X</button>
-        <div className="title-box">
-          <h1 className="title">{club.club_name}</h1>
-        </div>
-        <div className="body-box">
-          <List>
-            <List.Item>
-              <List.Icon name="users" />
-              <List.Content>{club.club_master}</List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name="marker" />
-              <List.Content> 42Seoul </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name="mail" />
-
-              <List.Content>
-                <textarea
-                  className="clubinfo"
-                  type="text"
-                  name="club_info"
-                  value={club.club_info}
-                  onChange={handleClubInfo}
-                />
-              </List.Content>
-            </List.Item>
-            <List.Item>
-              <List.Icon name="linkify" />
-              <List.Content>
-                <a href={club.club_invite_link}>{club.club_invite_link}</a>
-              </List.Content>
-            </List.Item>
-          </List>
-          <div>{club.club_active_info}</div>
-          <div>{club.club_invite_info}</div>
-          <div>{club.club_state}</div>
-          <div>{club.club_member}</div>
-        </div>
-        <Button className="save-club-button" onClick={handleSaveClubButton}>
-          <Button.Content visible> Save </Button.Content>
-        </Button>
+    <div className="clubdetail">
+      <button onClick={handleCloseButtonTabbed}>X</button>
+      <div className="title-box">
+        <h1 className="title">{club.club_name}</h1>
       </div>
+      <div className="body-box">
+        <List>
+          <List.Item>
+            <List.Icon name="users" />
+            <List.Content>{club.club_master}</List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Icon name="marker" />
+            <List.Content> 42Seoul </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Icon name="mail" />
+
+            <List.Content>
+              <textarea
+                className="clubinfo"
+                type="text"
+                name="club_info"
+                value={club.club_info}
+                onChange={handleClubInfo}
+              />
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Icon name="linkify" />
+            <List.Content>
+              <a href={club.club_invite_link}>{club.club_invite_link}</a>
+            </List.Content>
+          </List.Item>
+        </List>
+        <div>{club.club_active_info}</div>
+        <div>{club.club_invite_info}</div>
+        <div>{club.club_state}</div>
+        <div>{club.club_member}</div>
+      </div>
+      <Button className="save-club-button" onClick={handleSaveClubButton}>
+        <Button.Content visible> Save </Button.Content>
+      </Button>
     </div>
   );
 };
