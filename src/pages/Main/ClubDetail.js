@@ -1,6 +1,6 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
-import { Button, List } from 'semantic-ui-react';
+import { Button, List, Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import { useLocation } from 'react-router';
@@ -59,11 +59,16 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
 
   return (
     <div className="clubdetail">
-      <button onClick={handleCloseButtonTabbed}>X</button>
-      <div className="title-box">
-        <h1 className="title">{club.club_name}</h1>
+      <div className="clubdetail-title-box">
+        <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
+        <Icon
+          className="clubdetail-title-box-closebutton"
+          size="big"
+          name="close"
+          onClick={handleCloseButtonTabbed}
+        />
       </div>
-      <div className="body-box">
+      <div className="clubdetail-body-box">
         <List>
           <List.Item>
             <List.Icon name="users" />

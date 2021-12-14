@@ -89,70 +89,72 @@ const Main = () => {
   }, []);
 
   return (
-    <div
-      className="Container"
-      style={{
-        backgroundImage: `url(${background})`,
-      }}
-    >
-      <div className="blur">
-        <div className="header">
-          <h1 className="title"> 42 Club List </h1>
-        </div>
-        {/* {isClubTabbed && ( */}
-        <div className={isClubTabbed ? 'modal-visible' : 'modal-hide'}>
-          <ClubDetail
-            club={club}
-            handleCloseButtonTabbed={handleCloseButtonTabbed}
-          />
-        </div>
-        {/* )} */}
-        {!isSave && (
-          <div className="loader-box">
-            <Loader
-              className="loader"
-              type="Puff"
-              color="#00BFFF"
-              height={80}
-              width={80}
-            />
+    <>
+      <div
+        className="Container"
+        style={{
+          backgroundImage: `url(${background})`,
+        }}
+      >
+        <div className="blur">
+          <div className="header">
+            <h1 className="title"> 42 Club List </h1>
           </div>
-        )}
-        {isSave && (
-          <div className="Main">
-            <div>
-              <h3 className="subtitle sticky"> 상시 모집 </h3>
-              <ClubList
-                clubList={clubList1}
-                setClub={setClub}
-                handleClubTabbed={handleClubTabbed}
+          {!isSave && (
+            <div className="loader-box">
+              <Loader
+                className="loader"
+                type="Puff"
+                color="#00BFFF"
+                height={80}
+                width={80}
               />
             </div>
-            <div>
-              <h3 className="subtitle sticky"> 기수 모집 </h3>
-              <ClubList
-                clubList={clubList2}
-                setClub={setClub}
-                handleClubTabbed={handleClubTabbed}
-              />
+          )}
+          {isSave && (
+            <div className="Main">
+              <div>
+                <h3 className="subtitle sticky"> 상시 모집 </h3>
+                <ClubList
+                  clubList={clubList1}
+                  setClub={setClub}
+                  handleClubTabbed={handleClubTabbed}
+                />
+              </div>
+              <div>
+                <h3 className="subtitle sticky"> 기수 모집 </h3>
+                <ClubList
+                  clubList={clubList2}
+                  setClub={setClub}
+                  handleClubTabbed={handleClubTabbed}
+                />
+              </div>
+              <div>
+                <h3 className="subtitle sticky"> 기타 </h3>
+                <ClubList
+                  clubList={clubList3}
+                  setClub={setClub}
+                  handleClubTabbed={handleClubTabbed}
+                />
+              </div>
+              <Link to="addclub">
+                <Button className="add-club-button">
+                  <Button.Content visible> 동아리 추가 </Button.Content>
+                </Button>
+              </Link>
             </div>
-            <div>
-              <h3 className="subtitle sticky"> 기타 </h3>
-              <ClubList
-                clubList={clubList3}
-                setClub={setClub}
-                handleClubTabbed={handleClubTabbed}
-              />
-            </div>
-            <Link to="addclub">
-              <Button className="add-club-button">
-                <Button.Content visible> 동아리 추가 </Button.Content>
-              </Button>
-            </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+      <div
+        className={isClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
+      >
+        <ClubDetail
+          club={club}
+          handleCloseButtonTabbed={handleCloseButtonTabbed}
+        />
+      </div>
+    </>
   );
 };
 
