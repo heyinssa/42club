@@ -15,7 +15,6 @@ const Main = () => {
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
   const [rows, setRows] = useState([]);
-  // const [isModalVisible, setIsModalVisible] = useState(false);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
@@ -40,7 +39,7 @@ const Main = () => {
         const sheet = _doc.sheetsByIndex[0];
         const _rows = await sheet.getRows();
         setRows(_rows);
-        divideClubList(_rows);
+        divideClubList(_rows, null);
       } catch (e) {
         console.error('Error: ', e);
       }
@@ -50,12 +49,12 @@ const Main = () => {
     await fetchClubList();
   };
 
-  const divideClubList = async (rows) => {
+  const divideClubList = async (rows, text) => {
     setClubList1(
       rows.filter((result) => {
         return (
           result.club_state == '상시 모집' &&
-          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+          (text ? result.club_name.indexOf(text) != -1 : true)
         );
       })
     );
@@ -64,7 +63,7 @@ const Main = () => {
       rows.filter((result) => {
         return (
           result.club_state == '기수 모집' &&
-          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+          (text ? result.club_name.indexOf(text) != -1 : true)
         );
       })
     );
@@ -74,7 +73,7 @@ const Main = () => {
         return (
           result.club_state != '상시 모집' &&
           result.club_state != '기수 모집' &&
-          (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+          (text ? result.club_name.indexOf(text) != -1 : true)
         );
       })
     );
@@ -91,14 +90,15 @@ const Main = () => {
 
   const handleSearchButtonTabbed = () => {
     setIsSave(false);
-    divideClubList(rows);
+    divideClubList(rows, null);
     setIsSave(true);
     console.log(searchText);
   };
 
-  const handleSearchTextChange = (e) => {
+  const handleSearchTextChange = (text) => {
+    setSearchText(text);
     setIsSave(false);
-    divideClubList(rows);
+    divideClubList(rows, text);
     setIsSave(true);
   };
 
@@ -140,8 +140,7 @@ const Main = () => {
                     className="searchTerm"
                     onChange={(e) => {
                       console.log(e.target.value);
-                      setSearchText(e.target.value);
-                      handleSearchTextChange(e);
+                      handleSearchTextChange(e.target.value);
                     }}
                     value={searchText}
                     placeholder="input club name"
@@ -165,22 +164,29 @@ const Main = () => {
                   />
                 </div>
               )}
-              <div>
-                <h3 className="subtitle sticky"> 기수 모집 </h3>
-                <ClubList
-                  clubList={clubList2}
-                  setClub={setClub}
-                  handleClubTabbed={handleClubTabbed}
-                />
-              </div>
-              <div>
-                <h3 className="subtitle sticky"> 기타 </h3>
-                <ClubList
-                  clubList={clubList3}
-                  setClub={setClub}
-                  handleClubTabbed={handleClubTabbed}
-                />
-              </div>
+              {clubList2.length != 0 && (
+                <div>
+                  <h3 className="subtitle sticky"> 기수 모집 </h3>
+                  <ClubList
+                    clubList={clubList2}
+                    setClub={setClub}
+                    handleClubTabbed={handleClubTabbed}
+                  />
+                </div>
+              )}
+              {clubList3.length != 0 && (
+                <div>
+                  <h3 className="subtitle sticky"> 기타 </h3>
+                  <ClubList
+                    clubList={clubList3}
+                    setClub={setClub}
+                    handleClubTabbed={handleClubTabbed}
+                  />
+                </div>
+              )}
+              {clubList1.length + clubList2.length + clubList3.length == 0 && (
+                <div>no Result!</div>
+              )}
               <Link to="addclub">
                 <Button className="add-club-button">
                   <Button.Content visible> 동아리 추가 </Button.Content>
