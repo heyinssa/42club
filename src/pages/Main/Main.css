@@ -2,8 +2,8 @@
   height: 100%;
   min-height: 100vh;
   /* background-image: url('https://cdn.pixabay.com/photo/2016/04/06/10/08/pink-1311251_1280.jpg'); */
-  background-repeat: repeat;
-  /* background-size: cover; */
+  /* background-repeat: repeat; */
+  background-size: cover;
   /* background-position: center; */
   background-position: top;
 }

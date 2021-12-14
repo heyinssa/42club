@@ -8,22 +8,22 @@ import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { ClubDetail } from '..';
 import background from '../../images/background.png';
+import background2 from '../../images/background2.png';
 import './Main.css';
 
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
-
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-    // console.log(_doc);
 
     const authGoogleSheet = async () => {
       try {
@@ -39,19 +39,27 @@ const Main = () => {
     const divideClubList = async (rows) => {
       setClubList1(
         rows.filter((result) => {
-          return result.club_state == '상시 모집';
+          return (
+            result.club_state == '상시 모집' &&
+            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+          );
         })
       );
 
       setClubList2(
         rows.filter((result) => {
-          return result.club_state == '기수 모집';
+          return (
+            result.club_state == '기수 모집' &&
+            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
+          );
         })
       );
       setClubList3(
         rows.filter((result) => {
           return (
-            result.club_state != '상시 모집' && result.club_state != '기수 모집'
+            result.club_state != '상시 모집' &&
+            result.club_state != '기수 모집' &&
+            (searchText ? result.club_name.indexOf(searchText) != -1 : true)
           );
         })
       );
@@ -86,6 +94,7 @@ const Main = () => {
 
   useEffect(() => {
     init();
+    setSearchText('42');
   }, []);
 
   return (
@@ -93,7 +102,7 @@ const Main = () => {
       <div
         className="Container"
         style={{
-          backgroundImage: `url(${background})`,
+          backgroundImage: `url(${background2})`,
         }}
       >
         <div className="blur">

@@ -10,12 +10,33 @@ import Loader from 'react-loader-spinner';
 import background from '../../images/background.png';
 import './Main.css';
 
+//     club: {
+//       club_name: e.club_name,
+//       club_info: e.club_info,
+//       club_active_info: e.club_active_info,
+//       club_invite_info: e.club_invite_info,
+//       club_invite_link: e.club_invite_link,
+//       club_master: e.club_master,
+//       club_member: e.club_member,
+//       club_state: e.club_state,
+//       index: e.index,
+//     },
+
 const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
+  const [clubName, setClubName] = useState('');
+  const [clubInfo, setClubInfo] = useState('');
+  const [clubActiveInfo, setClubActiveInfo] = useState('');
+  const [clubInviteLink, setClubInviteLink] = useState('');
+  const [clubInviteInfo, setClubInviteInfo] = useState('');
+  const [clubMaster, setClubMaster] = useState('');
+  const [clubMember, setClubMember] = useState('');
+  const [clubState, setClubState] = useState('');
+
   const [isSave, setIsSave] = useState(false);
-  const location = useLocation();
+
 
   const handleClubInfo = (event) => {
-    // setClubinfo(event.target.value);
+    setClubInfo(event.target.value);
   };
 
   const handleSaveClubButton = async (event) => {
@@ -25,33 +46,6 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
     await club.save();
     setIsSave(true);
   };
-
-  // const init = async () => {
-  //   const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
-  //   const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-
-  //   const authGoogleSheet = async () => {
-  //     try {
-  //       await _doc.useServiceAccountAuth(gs_creds);
-  //       await _doc.loadInfo();
-  //     } catch (e) {
-  //       console.error('Error: ', e);
-  //     }
-  //   };
-
-  //   const fetchClubList = async () => {
-  //     try {
-  //       const sheet = _doc.sheetsByIndex[0];
-  //       const rows = await sheet.getRows();
-  //       setRow(rows[params.row - 2]);
-  //     } catch (e) {
-  //       console.error('Error: ', e);
-  //     }
-  //   };
-
-  //   await authGoogleSheet();
-  //   await fetchClubList();
-  // };
 
   useEffect(() => {
     console.log(club);
