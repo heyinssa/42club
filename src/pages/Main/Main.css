@@ -107,6 +107,7 @@
   height: max-content;
 }
 .clubdetail {
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,17 +196,20 @@
 .modal {
   position: fixed;
   top: 60px;
-  left: 0;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   height: 100vh;
 }
 
 .modal-hide {
-  display: none;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  top: 100%;
 }
 
 .modal-visible {
   width: 100%;
-  max-width: 1024px;
+  /* max-width: 1024px; */
   height: 100%;
   min-height: 100vh;
   /* top: 60px; */
