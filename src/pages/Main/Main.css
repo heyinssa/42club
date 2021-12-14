@@ -4,7 +4,8 @@
   /* background-image: url('https://cdn.pixabay.com/photo/2016/04/06/10/08/pink-1311251_1280.jpg'); */
   background-repeat: repeat;
   /* background-size: cover; */
-  background-position: center;
+  /* background-position: center; */
+  background-position: top;
 }
 
 .blur {
@@ -21,6 +22,7 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
+  padding: 10px 0;
   /* overflow-y: scroll; */
   /* margin-top: 60px; */
 }
@@ -65,7 +67,7 @@
   width: 100%;
   top: 0px;
   left: 0px;
-  /* background: white; */
+  background: linear-gradient(#ffffffff, #fffffffa, #ffffffdc, #ffffffcc);
   z-index: 9;
   box-shadow: 0px 3px 4px #00000020;
   /* margin: auto; */

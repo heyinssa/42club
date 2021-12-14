@@ -10,14 +10,7 @@ import Loader from 'react-loader-spinner';
 import background from '../../images/background.png';
 import './Main.css';
 
-/* global history */
-/* global location */
-/* global window */
-
-/* eslint no-restricted-globals: ["off"] */
-
-const ClubDetail = ({ handleIsClicked }) => {
-  const [club, setClub] = useState([]);
+const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
   const [isSave, setIsSave] = useState('false');
   // const [row, setRow] = useState([]);
   const location = useLocation();
@@ -32,7 +25,6 @@ const ClubDetail = ({ handleIsClicked }) => {
     // console.log('save start');
     // await row.save();
     // setIsSave(true);
-    history.back();
   };
 
   // const init = async () => {
@@ -64,33 +56,25 @@ const ClubDetail = ({ handleIsClicked }) => {
 
   // useEffect(() => {
   //   init();
-  //   setClub(location.state.club);
+  //   setClub(club);
   //   console.log(params);
   // }, []);
 
   return (
-    <div className="Container" style={{ backgroundImage: `url(${background})`, }}>
-    <div className="temp">
-      {!isSave && (
-        <div className="loader-box">
-          <Loader
-            className="loader"
-            type="Oval"
-            color="#00BFFF"
-            height={80}
-            width={80}
-          />
-        </div>
-      )}
+    <div
+      className="Container"
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <div className="clubdetail">
+        <button onClick={handleCloseButtonTabbed}>X</button>
         <div className="title-box">
-          <h1 className="title">{location.state.club.club_name}</h1>
+          <h1 className="title">{club.club_name}</h1>
         </div>
         <div className="body-box">
           <List>
             <List.Item>
               <List.Icon name="users" />
-              <List.Content>{location.state.club.club_master}</List.Content>
+              <List.Content>{club.club_master}</List.Content>
             </List.Item>
             <List.Item>
               <List.Icon name="marker" />
@@ -104,7 +88,7 @@ const ClubDetail = ({ handleIsClicked }) => {
                   className="clubinfo"
                   type="text"
                   name="club_info"
-                  // value={clubinfo}
+                  value={club.club_info}
                   onChange={handleClubInfo}
                 />
               </List.Content>
@@ -112,22 +96,19 @@ const ClubDetail = ({ handleIsClicked }) => {
             <List.Item>
               <List.Icon name="linkify" />
               <List.Content>
-                <a href={location.state.club.club_invite_link}>
-                  {location.state.club.club_invite_link}
-                </a>
+                <a href={club.club_invite_link}>{club.club_invite_link}</a>
               </List.Content>
             </List.Item>
           </List>
-          <div>{location.state.club.club_active_info}</div>
-          <div>{location.state.club.club_invite_info}</div>
-          <div>{location.state.club.club_state}</div>
-          <div>{location.state.club.club_member}</div>
+          <div>{club.club_active_info}</div>
+          <div>{club.club_invite_info}</div>
+          <div>{club.club_state}</div>
+          <div>{club.club_member}</div>
         </div>
         <Button className="save-club-button" onClick={handleSaveClubButton}>
           <Button.Content visible> Save </Button.Content>
         </Button>
       </div>
-    </div>
     </div>
   );
 };

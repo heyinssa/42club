@@ -11,20 +11,13 @@ import background from '../../images/background.png';
 import './Main.css';
 
 const Main = () => {
-  const [isClicked, setIsClicked] = useState('false');
-  const [isSave, setIsSave] = useState('false');
+  const [isSave, setIsSave] = useState(false);
+  const [isClubTabbed, setIsClubTabbed] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
-
-  // var clubList1;
-  // let clubList2;
-  // let clubList3;
-
-  const handleIsClicked = () => {
-    setIsClicked(true);
-  };
 
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
@@ -82,6 +75,14 @@ const Main = () => {
     console.log('init done');
   };
 
+  const handleClubTabbed = () => {
+    setIsClubTabbed(true);
+  };
+
+  const handleCloseButtonTabbed = () => {
+    setIsClubTabbed(false);
+  };
+
   useEffect(() => {
     init();
   }, []);
@@ -97,11 +98,14 @@ const Main = () => {
         <div className="header">
           <h1 className="title"> 42 Club List </h1>
         </div>
-        {/* {isClicked && (
+        {isClubTabbed && (
           <div className="modal">
-            <ClubDetail handleIsClicked={handleIsClicked} />
+            <ClubDetail
+              club={club}
+              handleCloseButtonTabbed={handleCloseButtonTabbed}
+            />
           </div>
-        )} */}
+        )}
         {!isSave && (
           <div className="loader-box">
             <Loader
@@ -117,15 +121,27 @@ const Main = () => {
           <div className="Main">
             <div>
               <h3 className="subtitle sticky"> 상시 모집 </h3>
-              <ClubList clubList={clubList1} />
+              <ClubList
+                clubList={clubList1}
+                setClub={setClub}
+                handleClubTabbed={handleClubTabbed}
+              />
             </div>
             <div>
               <h3 className="subtitle sticky"> 기수 모집 </h3>
-              <ClubList clubList={clubList2} />
+              <ClubList
+                clubList={clubList2}
+                setClub={setClub}
+                handleClubTabbed={handleClubTabbed}
+              />
             </div>
             <div>
               <h3 className="subtitle sticky"> 기타 </h3>
-              <ClubList clubList={clubList3} />
+              <ClubList
+                clubList={clubList3}
+                setClub={setClub}
+                handleClubTabbed={handleClubTabbed}
+              />
             </div>
             <Link to="addclub">
               <Button className="add-club-button">
