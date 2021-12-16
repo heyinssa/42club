@@ -191,6 +191,11 @@
   margin: 0;
 }
 
+.icon.icon_width {
+  width: 20px;
+  margin-right: 5px;
+}
+
 .save-club-button {
   width: 85px;
   height: 35px;

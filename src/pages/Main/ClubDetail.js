@@ -62,36 +62,37 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
       </div>
       <div className="clubdetail-body-box">
         <List>
+          <TextareaAutosize
+            className="clubinfo"
+            type="text"
+            name="club_info"
+            value={club.club_info}
+            onChange={handleClubInfo}
+          />
           <List.Item>
-            <List.Icon name="users" />
-            <List.Content>{club.club_master}</List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Icon name="marker" />
-            <List.Content> 42Seoul </List.Content>
-          </List.Item>
-          <List.Item>
-            {/* <textarea */}
-            <TextareaAutosize
-              className="clubinfo"
-              type="text"
-              name="club_info"
-              value={club.club_info}
-              onChange={handleClubInfo}
-            />
-          </List.Item>
-          <List.Item>
-            <List.Icon name="linkify" />
             <List.Content>
+              <Icon className="icon_width" name="users" />
+              {club.club_master}
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Content>
+              <Icon className="icon_width" name="marker" />
+              42Seoul{' '}
+            </List.Content>
+          </List.Item>
+          <List.Item></List.Item>
+          <List.Item>
+            <List.Content>
+              <Icon className="icon_width" name="linkify" />
               <a href={club.club_invite_link}>
-                {' '}
-                {club.club_invite_link == '' ? ' - ' : '참여 링크'}{' '}
+                {club.club_invite_link == '' ? ' - ' : '참여 링크'}
               </a>
             </List.Content>
           </List.Item>
-          <List.Icon name="mail" />
           <List.Content>
-            <a href={club.club_invite_link}>{club.club_invite_link}</a>
+            <Icon className="icon_width" name="mail" />
+            {club.club_invite_dm == '' ? ' - ' : club.club_invite_dm}
           </List.Content>
         </List>
         <div>{club.club_active_info}</div>
