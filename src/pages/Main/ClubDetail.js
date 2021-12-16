@@ -1,13 +1,6 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
 import { Button, List, Icon } from 'semantic-ui-react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
-import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import Loader from 'react-loader-spinner';
-import background from '../../images/background.png';
 import './Main.css';
 
 //     club: {
@@ -33,7 +26,6 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
   const [clubState, setClubState] = useState('');
 
   const [isSave, setIsSave] = useState(false);
-
 
   const handleClubInfo = (event) => {
     setClubInfo(event.target.value);
@@ -73,24 +65,28 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
             <List.Content> 42Seoul </List.Content>
           </List.Item>
           <List.Item>
-            <List.Icon name="mail" />
-
-            <List.Content>
-              <textarea
-                className="clubinfo"
-                type="text"
-                name="club_info"
-                value={club.club_info}
-                onChange={handleClubInfo}
-              />
-            </List.Content>
+            <textarea
+              oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+              className="clubinfo"
+              type="text"
+              name="club_info"
+              value={club.club_info}
+              onChange={handleClubInfo}
+            />
           </List.Item>
           <List.Item>
             <List.Icon name="linkify" />
             <List.Content>
-              <a href={club.club_invite_link}>{club.club_invite_link}</a>
+              <a href={club.club_invite_link}>
+                {' '}
+                {club.club_invite_link == '' ? ' - ' : '참여 링크'}{' '}
+              </a>
             </List.Content>
           </List.Item>
+          <List.Icon name="mail" />
+          <List.Content>
+            <a href={club.club_invite_link}>{club.club_invite_link}</a>
+          </List.Content>
         </List>
         <div>{club.club_active_info}</div>
         <div>{club.club_invite_info}</div>

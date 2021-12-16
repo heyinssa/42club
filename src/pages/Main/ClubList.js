@@ -1,8 +1,5 @@
 import React from 'react';
-import { useState, useRef, useEffect } from 'react';
-import { Card, Icon, List } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { Animated } from 'react-animated-css';
+import { Icon, List } from 'semantic-ui-react';
 import './Main.css';
 
 const ClubList = ({ clubList, setClub, handleClubTabbed }) => {
@@ -10,28 +7,12 @@ const ClubList = ({ clubList, setClub, handleClubTabbed }) => {
     handleClubTabbed();
     setClub(e);
   };
+
   return (
     <>
       <List className="display">
         {clubList.map((e, index) => {
           return (
-            // <Link
-            //   key={e.club_name}
-            //   to={clubDetailUrl}
-            //   state={{
-            //     club: {
-            //       club_name: e.club_name,
-            //       club_info: e.club_info,
-            //       club_active_info: e.club_active_info,
-            //       club_invite_info: e.club_invite_info,
-            //       club_invite_link: e.club_invite_link,
-            //       club_master: e.club_master,
-            //       club_member: e.club_member,
-            //       club_state: e.club_state,
-            //       index: e.index,
-            //     },
-            //   }}
-            // >
             <div onClick={() => handleCardTabbed(e)} value={e}>
               <div className="card-box">
                 <div>
@@ -50,7 +31,6 @@ const ClubList = ({ clubList, setClub, handleClubTabbed }) => {
                 </div>
               </div>
             </div>
-            // </Link>
           );
         })}
       </List>

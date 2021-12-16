@@ -26,45 +26,9 @@
   /* margin-top: 60px; */
 }
 
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-  box-shadow: 1px 1px 4px #00000015;
-}
-
-.searchTerm {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid #b251df;
-  border-right: none;
-  padding: 5px;
-  height: 30px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #1b1b1b;
-}
-
-.searchTerm:focus {
-  color: #1b1b1b;
-}
-
-.searchButton {
-  width: 40px;
-  height: 30px;
-  border: 1px solid #b251df;
-  background: #b251df;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap {
-  width: 30%;
-  position: relative;
+.searchButton Icon {
+  box-shadow: 0px;
+  background: transparent;
 }
 
 .ui.list.display {
@@ -145,7 +109,7 @@
 .clubinfo {
   border: 0px solid;
   width: 100%;
-  height: max-content;
+  /* height: max-content; */
 }
 .clubdetail {
   max-width: 1024px;
@@ -161,7 +125,7 @@
   background: white;
   border-radius: 15px;
   margin: 5%;
-  padding: 3%;
+  padding: 5%;
   /* background: rgba(255, 255, 255, 0.5); */
   box-shadow: 1px 1px 4px #00000015;
 }
@@ -201,11 +165,17 @@
   border: 0px;
 }
 
-.ui.button.add-club-button {
-  position: sticky;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+.add-club-button {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  bottom: 3%;
+  right: 5%;
+  border-radius: 100%;
+  border: 0px solid;
+  background: #cdb1da;
+  box-shadow: 1px 1px #00000013;
+  /* transform: translateX(-50%); */
 }
 
 .ui.button.save-club-button {

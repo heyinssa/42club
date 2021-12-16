@@ -6,14 +6,16 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
-import { ClubDetail } from '..';
-import background from '../../images/background.png';
+import { AddClubForm, ClubDetail } from '..';
+// import background from '../../images/background.png';
 import background2 from '../../images/background2.png';
 import './Main.css';
+import './searchbar.css';
 
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
+  const [isAddClubTabbed, setIsAddClubTabbed] = useState(false);
   const [rows, setRows] = useState([]);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
@@ -39,7 +41,7 @@ const Main = () => {
         const sheet = _doc.sheetsByIndex[0];
         const _rows = await sheet.getRows();
         setRows(_rows);
-        divideClubList(_rows, null);
+        await divideClubList(_rows, null);
       } catch (e) {
         console.error('Error: ', e);
       }
@@ -47,14 +49,26 @@ const Main = () => {
 
     await authGoogleSheet();
     await fetchClubList();
+    setIsSave(true);
   };
 
   const divideClubList = async (rows, text) => {
+    const isContainSearchText = (clubinfo, searchText) => {
+      if (searchText == null) return true;
+      if (
+        clubinfo.club_name.toLowerCase().indexOf(searchText.toLowerCase()) !=
+          -1 ||
+        clubinfo.club_info.toLowerCase().indexOf(searchText.toLowerCase()) != -1
+      ) {
+        return true;
+      }
+      return false;
+    };
+
     setClubList1(
       rows.filter((result) => {
         return (
-          result.club_state == '상시 모집' &&
-          (text ? result.club_name.indexOf(text) != -1 : true)
+          result.club_state == '상시 모집' && isContainSearchText(result, text)
         );
       })
     );
@@ -62,8 +76,7 @@ const Main = () => {
     setClubList2(
       rows.filter((result) => {
         return (
-          result.club_state == '기수 모집' &&
-          (text ? result.club_name.indexOf(text) != -1 : true)
+          result.club_state == '기수 모집' && isContainSearchText(result, text)
         );
       })
     );
@@ -73,10 +86,13 @@ const Main = () => {
         return (
           result.club_state != '상시 모집' &&
           result.club_state != '기수 모집' &&
-          (text ? result.club_name.indexOf(text) != -1 : true)
+          isContainSearchText(result, text)
         );
       })
     );
+  };
+  const handleAddClubTabbed = () => {
+    setIsAddClubTabbed(true);
   };
 
   const handleClubTabbed = () => {
@@ -84,15 +100,14 @@ const Main = () => {
   };
 
   const handleCloseButtonTabbed = () => {
-    console.log(isClubTabbed);
     setIsClubTabbed(false);
+    setIsAddClubTabbed(false);
   };
 
   const handleSearchButtonTabbed = () => {
     setIsSave(false);
     divideClubList(rows, null);
     setIsSave(true);
-    console.log(searchText);
   };
 
   const handleSearchTextChange = (text) => {
@@ -105,7 +120,6 @@ const Main = () => {
   useEffect(() => {
     setIsSave(false);
     init();
-    setIsSave(true);
   }, []);
 
   return (
@@ -150,7 +164,7 @@ const Main = () => {
                     className="searchButton"
                     onClick={handleSearchButtonTabbed}
                   >
-                    <Icon name="search" />
+                    <Icon name="search" color="black" />
                   </button>
                 </div>
               </div>
@@ -187,11 +201,6 @@ const Main = () => {
               {clubList1.length + clubList2.length + clubList3.length == 0 && (
                 <div>no Result!</div>
               )}
-              <Link to="addclub">
-                <Button className="add-club-button">
-                  <Button.Content visible> 동아리 추가 </Button.Content>
-                </Button>
-              </Link>
             </div>
           )}
         </div>
@@ -204,6 +213,17 @@ const Main = () => {
           handleCloseButtonTabbed={handleCloseButtonTabbed}
         />
       </div>
+      <div
+        className={isAddClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
+      >
+        <AddClubForm
+          club={club}
+          handleCloseButtonTabbed={handleCloseButtonTabbed}
+        />
+      </div>
+      <button className="add-club-button" onClick={handleAddClubTabbed}>
+        <Icon name="plus" />
+      </button>
     </>
   );
 };
