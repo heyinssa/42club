@@ -147,11 +147,10 @@
   margin: 10px;
 }
 .clubdetail-title-box-closebutton {
-  position: ;
   right: 10%;
   top: 3%;
   background: #ffffff00;
-  color: white;
+  color: black;
   border: 0px;
   cursor: pointer;
   transition: all ease 1s;
@@ -193,7 +192,7 @@
   height: 35px;
   border: 0px solid;
   font-size: 1.5rem;
-  background: rgb(165, 93, 212);
+  background: rgb(175, 110, 218);
   line-height: 1.5rem;
   border-radius: 5px;
   color: white;

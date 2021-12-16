@@ -55,7 +55,7 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
         <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
         <Icon
           className="clubdetail-title-box-closebutton"
-          size="big"
+          size="large"
           name="close"
           onClick={handleCloseButtonTabbed}
         />
