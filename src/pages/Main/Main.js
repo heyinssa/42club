@@ -214,10 +214,12 @@ const Main = () => {
         className={isClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
         // onClick={handleCloseButtonTabbed}
       >
-        <ClubDetail
-          club={club}
-          handleCloseButtonTabbed={handleCloseButtonTabbed}
-        />
+        <div className="bgtest">
+          <ClubDetail
+            club={club}
+            handleCloseButtonTabbed={handleCloseButtonTabbed}
+          />
+        </div>
       </div>
       <div
         className={isAddClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
