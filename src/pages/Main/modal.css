@@ -21,7 +21,9 @@
   position: fixed;
   /* position: sticky; */
   /* top: 60px; */
-  background: rgba(0, 0, 0, 0.777);
+  /* background: rgba(0, 0, 0, 0.777); */
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
   animation: fadeIn 0.5s, slideIn 0.8s linear;
   z-index: 13;
   margin: auto;
