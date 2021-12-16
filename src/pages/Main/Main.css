@@ -112,19 +112,19 @@
   /* height: max-content; */
 }
 .clubdetail {
+  width: 85%;
   max-width: 1024px;
   display: flex;
   flex-direction: column;
+  gap: 30px;
   align-items: center;
   margin: auto;
-  padding: 5% 10%;
 }
 
 .clubdetail-body-box {
   width: 100%;
   background: white;
   border-radius: 15px;
-  margin: 5%;
   padding: 5%;
   /* background: rgba(255, 255, 255, 0.5); */
   box-shadow: 1px 1px 4px #00000015;
@@ -136,6 +136,7 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  margin-top: 5%;
 }
 
 .hidden {
