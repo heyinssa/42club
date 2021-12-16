@@ -176,7 +176,13 @@
   border: 0px solid;
   background: #cdb1da;
   box-shadow: 1px 1px #00000013;
-  /* transform: translateX(-50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon.iconnomargin {
+  margin: 0;
 }
 
 .ui.button.save-club-button {

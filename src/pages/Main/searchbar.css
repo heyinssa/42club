@@ -17,7 +17,7 @@
   border-radius: 5px 0 0 5px;
   background: rgba(255, 255, 255, 0.6);
   /* background: red; */
-  border: 1px solid #cdb1da;
+  border: 1px solid #dac8e2;
   border-right: none;
   padding: 5px;
   height: 30px;
@@ -32,7 +32,7 @@
 .searchButton {
   width: 40px;
   height: 30px;
-  border: 1px solid #cdb1da;
+  border: 1px solid #dac8e2;
   background: rgba(255, 255, 255, 0.6);
   text-align: center;
   color: #fff;

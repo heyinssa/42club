@@ -226,7 +226,7 @@ const Main = () => {
         <AddClubForm handleCloseButtonTabbed={handleCloseButtonTabbed} />
       </div>
       <button className="add-club-button" onClick={handleAddClubTabbed}>
-        <Icon name="plus" />
+        <Icon className="iconnomargin" name="plus" />
       </button>
     </>
   );
