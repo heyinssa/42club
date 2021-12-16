@@ -47,6 +47,11 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
   return (
     <div className="clubdetail">
       <div className="clubdetail-title-box">
+        <Icon
+          className="hidden"
+          name="close"
+          onClick={handleCloseButtonTabbed}
+        />
         <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
         <Icon
           className="clubdetail-title-box-closebutton"
@@ -94,9 +99,9 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
         <div>{club.club_state}</div>
         <div>{club.club_member}</div>
       </div>
-      <Button className="save-club-button" onClick={handleSaveClubButton}>
-        <Button.Content visible> Save </Button.Content>
-      </Button>
+      <button className="save-club-button" onClick={handleSaveClubButton}>
+        Save
+      </button>
     </div>
   );
 };
