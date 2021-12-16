@@ -52,7 +52,12 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           name="close"
           onClick={handleCloseButtonTabbed}
         />
-        <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
+        <div>
+          <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
+          <span className="clubdetail-title-box-subtitle">
+            {club.club_category}
+          </span>
+        </div>
         <Icon
           className="clubdetail-title-box-closebutton"
           size="large"
@@ -97,7 +102,6 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
         </List>
         <div>{club.club_active_info}</div>
         <div>{club.club_invite_info}</div>
-        <div>{club.club_state}</div>
         <div>{club.club_member}</div>
       </div>
       <button className="save-club-button" onClick={handleSaveClubButton}>
