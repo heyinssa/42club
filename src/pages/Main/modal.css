@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  top: 60px;
+  top: 20px;
   /* left: 50%; */
   /* transform: translateX(-50%); */
   height: 100vh;
@@ -15,6 +15,7 @@
 .bgtest {
   height: 100%;
   background: #e941ff1f;
+  border-radius: 20px;
 }
 
 .modal-visible {
@@ -31,7 +32,7 @@
   animation: fadeIn 0.5s, slideIn 0.8s linear;
   z-index: 13;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px #999;
 }
 
