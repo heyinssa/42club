@@ -52,11 +52,9 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           name="close"
           onClick={handleCloseButtonTabbed}
         />
-        <div>
-          <h1 className="clubdetail-title-box-title">{club.club_name}</h1>
-          <span className="clubdetail-title-box-subtitle">
-            {club.club_category}
-          </span>
+        <div className="clubdetail-title-box-contents">
+          <h1>{club.club_name}</h1>
+          <span>{club.club_category}</span>
         </div>
         <Icon
           className="clubdetail-title-box-closebutton"
@@ -82,23 +80,24 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           </List.Item>
           <List.Item>
             <List.Content>
-              <Icon className="icon_width" name="marker" />
-              42Seoul{' '}
-            </List.Content>
-          </List.Item>
-          <List.Item></List.Item>
-          <List.Item>
-            <List.Content>
               <Icon className="icon_width" name="linkify" />
               <a href={club.club_invite_link}>
                 {club.club_invite_link == '' ? ' - ' : '참여 링크'}
               </a>
             </List.Content>
           </List.Item>
-          <List.Content>
-            <Icon className="icon_width" name="mail" />
-            {club.club_invite_dm == '' ? ' - ' : club.club_invite_dm}
-          </List.Content>
+          <List.Item>
+            <List.Content>
+              <Icon className="icon_width" name="mail" />
+              {club.club_invite_dm == '' ? ' - ' : club.club_invite_dm}
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Content>
+              <Icon className="icon_width" name="marker" />
+              {club.club_slack_chanel}
+            </List.Content>
+          </List.Item>
         </List>
         <div>{club.club_active_info}</div>
         <div>{club.club_invite_info}</div>

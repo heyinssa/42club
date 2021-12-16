@@ -26,6 +26,13 @@
   /* margin-top: 60px; */
 }
 
+.BlockScroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .searchButton Icon {
   box-shadow: 0px;
   background: transparent;
@@ -112,6 +119,10 @@
   /* height: max-content; */
   background: transparent;
 }
+
+.clubinfo::-webkit-scrollbar {
+  display: none;
+}
 .clubdetail {
   width: 85%;
   max-width: 1024px;
@@ -146,10 +157,18 @@
   display: none;
   color: transparent;
 }
-.clubdetail-title-box-subtitle {
+
+.clubdetail-title-box-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clubdetail-title-box-contents span {
   color: #4d4d4d;
 }
-.clubdetail-title-box-title {
+
+.clubdetail-title-box-contents h1 {
   /* color: white; */
   margin: 0;
   text-align: center;
@@ -201,7 +220,8 @@
 }
 
 .save-club-button {
-  width: 85px;
+  width: 100%;
+  max-width: 330px;
   height: 35px;
   border: 0px solid;
   font-size: 1.5rem;

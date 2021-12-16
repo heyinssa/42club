@@ -127,7 +127,8 @@ const Main = () => {
   return (
     <>
       <div
-        className="Container"
+        // className="Container"
+        className={isClubTabbed ? 'BlockScroll Container' : 'Container'}
         style={{
           backgroundImage: `url(${background2})`,
         }}
