@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, List, Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import './Main.css';
 
 //     club: {
@@ -15,27 +16,29 @@ import './Main.css';
 //       index: e.index,
 //     },
 
-const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
-  const [clubName, setClubName] = useState('');
-  const [clubInfo, setClubInfo] = useState('');
-  const [clubActiveInfo, setClubActiveInfo] = useState('');
-  const [clubInviteLink, setClubInviteLink] = useState('');
-  const [clubInviteInfo, setClubInviteInfo] = useState('');
-  const [clubMaster, setClubMaster] = useState('');
-  const [clubMember, setClubMember] = useState('');
-  const [clubState, setClubState] = useState('');
-
+const ClubDetail = ({ handleCloseButtonTabbed }) => {
+  const [club, setClub] = useState({
+    club_name: '',
+    club_info: '',
+    club_active_info: '',
+    club_invite_info: '',
+    club_invite_link: '',
+    club_master: '',
+    club_member: '',
+    club_state: '',
+    index: '',
+  });
   const [isSave, setIsSave] = useState(false);
 
   const handleClubInfo = (event) => {
-    setClubInfo(event.target.value);
+    // setClubInfo(event.target.value);
   };
 
   const handleSaveClubButton = async (event) => {
     handleCloseButtonTabbed();
     setIsSave(false);
     console.log('save start');
-    await club.save();
+    await club.addRow();
     setIsSave(true);
   };
 

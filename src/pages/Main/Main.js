@@ -1,7 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Icon } from 'semantic-ui-react';
+import React, { useEffect, useState, useRef } from 'react';
+import { Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
@@ -9,8 +7,11 @@ import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
 // import background from '../../images/background.png';
 import background2 from '../../images/background2.png';
+
 import './Main.css';
 import './searchbar.css';
+import './footer.css';
+import './modal.css';
 
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
@@ -22,6 +23,7 @@ const Main = () => {
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
   const [searchText, setSearchText] = useState('');
+  // const modalRef = useRef(null);
 
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
@@ -134,17 +136,6 @@ const Main = () => {
           <div className="header">
             <h1 className="title"> 42 Club List </h1>
           </div>
-          {!isSave && (
-            <div className="loader-box">
-              <Loader
-                className="loader"
-                type="Puff"
-                color="#00BFFF"
-                height={80}
-                width={80}
-              />
-            </div>
-          )}
           {isSave && (
             <div className="Main">
               <div className="wrap">
@@ -201,12 +192,27 @@ const Main = () => {
               {clubList1.length + clubList2.length + clubList3.length == 0 && (
                 <div>no Result!</div>
               )}
+              <div className="footer">
+                <div>Contact : @suhshin</div>
+              </div>
             </div>
           )}
         </div>
       </div>
+      {!isSave && (
+        <div className="loader-box">
+          <Loader
+            className="loader"
+            type="Puff"
+            color="#00BFFF"
+            height={80}
+            width={80}
+          />
+        </div>
+      )}
       <div
         className={isClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
+        // onClick={handleCloseButtonTabbed}
       >
         <ClubDetail
           club={club}
@@ -215,11 +221,9 @@ const Main = () => {
       </div>
       <div
         className={isAddClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
+        // onClick={handleCloseButtonTabbed}
       >
-        <AddClubForm
-          club={club}
-          handleCloseButtonTabbed={handleCloseButtonTabbed}
-        />
+        <AddClubForm handleCloseButtonTabbed={handleCloseButtonTabbed} />
       </div>
       <button className="add-club-button" onClick={handleAddClubTabbed}>
         <Icon name="plus" />

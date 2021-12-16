@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, List, Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 import './Main.css';
 
 //     club: {
@@ -65,8 +66,8 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
             <List.Content> 42Seoul </List.Content>
           </List.Item>
           <List.Item>
-            <textarea
-              oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+            {/* <textarea */}
+            <TextareaAutosize
               className="clubinfo"
               type="text"
               name="club_info"
