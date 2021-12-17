@@ -1,6 +1,6 @@
 .modal {
-  /* position: fixed; */
-  position: sticky;
+  position: fixed;
+  /* position: sticky; */
   top: 20px;
   height: 100vh;
 }

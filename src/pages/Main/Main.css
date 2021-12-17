@@ -143,6 +143,20 @@
   box-shadow: 1px 1px 4px #00000015;
 }
 
+.clubdetail-body-box-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.clubdetail-body-box-contents-inputtitle {
+  font-size: 1.7rem;
+}
+.clubdetail-body-box-contents input {
+  border: 0px solid;
+  background: transparent;
+  /* font-size: 1rem; */
+}
+
 .clubdetail-title-box {
   width: 100%;
   display: flex;

@@ -101,7 +101,6 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
         </List>
         <div>{club.club_active_info}</div>
         <div>{club.club_invite_info}</div>
-        <div>{club.club_member}</div>
       </div>
       <button className="save-club-button" onClick={handleSaveClubButton}>
         Save

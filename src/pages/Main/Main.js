@@ -23,6 +23,7 @@ const Main = () => {
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
   const [searchText, setSearchText] = useState('');
+  let sheet;
   // const modalRef = useRef(null);
 
   const init = async () => {
@@ -40,10 +41,11 @@ const Main = () => {
 
     const fetchClubList = async () => {
       try {
-        const sheet = _doc.sheetsByIndex[0];
-        const _rows = await sheet.getRows();
+        const _sheet = _doc.sheetsByIndex[0];
+        const _rows = await _sheet.getRows();
         setRows(_rows);
         await divideClubList(_rows, null);
+        sheet = _sheet;
       } catch (e) {
         console.error('Error: ', e);
       }
@@ -93,6 +95,11 @@ const Main = () => {
       })
     );
   };
+
+  const addClubRow = async (club) => {
+    await sheet.addRow(club);
+  };
+
   const handleAddClubTabbed = () => {
     setIsAddClubTabbed(true);
   };
@@ -226,7 +233,10 @@ const Main = () => {
         className={isAddClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
         // onClick={handleCloseButtonTabbed}
       >
-        <AddClubForm handleCloseButtonTabbed={handleCloseButtonTabbed} />
+        <AddClubForm
+          addClubRow={addClubRow}
+          handleCloseButtonTabbed={handleCloseButtonTabbed}
+        />
       </div>
       <button className="add-club-button" onClick={handleAddClubTabbed}>
         <Icon className="iconnomargin" name="plus" />

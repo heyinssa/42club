@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, List, Icon } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import './Main.css';
@@ -16,7 +16,7 @@ import './Main.css';
 //       index: e.index,
 //     },
 
-const ClubDetail = ({ handleCloseButtonTabbed }) => {
+const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
   const [club, setClub] = useState({
     club_name: '',
     club_info: '',
@@ -32,6 +32,7 @@ const ClubDetail = ({ handleCloseButtonTabbed }) => {
 
   const handleClubInfo = (event) => {
     // setClubInfo(event.target.value);
+    setClub({ club_name: 'hi' });
   };
 
   const handleSaveClubButton = async (event) => {
@@ -58,43 +59,35 @@ const ClubDetail = ({ handleCloseButtonTabbed }) => {
         />
       </div>
       <div className="clubdetail-body-box">
-        <List>
-          <List.Item>
-            <List.Icon name="users" />
-            <List.Content>{club.club_master}</List.Content>
-          </List.Item>
-          <List.Item>
-            <List.Icon name="marker" />
-            <List.Content> 42Seoul </List.Content>
-          </List.Item>
-          <List.Item>
-            <textarea
-              oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-              className="clubinfo"
-              type="text"
-              name="club_info"
-              value={club.club_info}
-              onChange={handleClubInfo}
-            />
-          </List.Item>
-          <List.Item>
-            <List.Icon name="linkify" />
-            <List.Content>
-              <a href={club.club_invite_link}>
-                {' '}
-                {club.club_invite_link == '' ? ' - ' : '참여 링크'}{' '}
-              </a>
-            </List.Content>
-          </List.Item>
-          <List.Icon name="mail" />
-          <List.Content>
-            <a href={club.club_invite_link}>{club.club_invite_link}</a>
-          </List.Content>
-        </List>
-        <div>{club.club_active_info}</div>
-        <div>{club.club_invite_info}</div>
-        <div>{club.club_state}</div>
-        <div>{club.club_member}</div>
+        <div className="clubdetail-body-box-contents">
+          <div>
+            <input
+              className="clubdetail-body-box-contents-inputtitle"
+              placeholder="club name"
+            ></input>
+          </div>
+          <div>
+            <input placeholder="club info"></input>
+          </div>
+          <div>
+            <div>
+              <Icon className="icon_width" name="users" />
+              <input placeholder="club master"></input>
+            </div>
+            <div>
+              <Icon className="icon_width" name="linkify" />
+              <input placeholder="club invite link"></input>
+            </div>
+            <div>
+              <Icon className="icon_width" name="mail" />
+              <input placeholder="club invite slack id"></input>
+            </div>
+            <div>
+              <Icon className="icon_width" name="marker" />
+              <input placeholder="club slack chanel"></input>
+            </div>
+          </div>
+        </div>
       </div>
       <Button className="save-club-button" onClick={handleSaveClubButton}>
         <Button.Content visible> Save </Button.Content>
