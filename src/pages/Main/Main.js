@@ -4,6 +4,8 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
+import { Helmet } from 'react-helmet';
+import { useThemeUI } from 'theme-ui';
 import { AddClubForm, ClubDetail } from '..';
 
 // import background from '../../images/background.png';
@@ -15,6 +17,7 @@ import './footer.css';
 import './modal.css';
 
 const Main = () => {
+  const { theme } = useThemeUI();
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
   const [isAddClubTabbed, setIsAddClubTabbed] = useState(false);
@@ -26,7 +29,7 @@ const Main = () => {
   const [clubList3, setClubList3] = useState([]);
   const [searchText, setSearchText] = useState('');
   // const modalRef = useRef(null);
-
+  console.log(theme);
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
@@ -134,6 +137,9 @@ const Main = () => {
 
   return (
     <>
+      <Helmet>
+        <style>{'html { background-color: white; }'}</style>
+      </Helmet>
       <div
         // className="Container"
         className={isClubTabbed ? 'BlockScroll Container' : 'Container'}
