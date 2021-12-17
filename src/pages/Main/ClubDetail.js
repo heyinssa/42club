@@ -1,20 +1,8 @@
 import React from 'react';
-import { Button, List, Icon } from 'semantic-ui-react';
+import { List, Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import './Main.css';
-
-//     club: {
-//       club_name: e.club_name,
-//       club_info: e.club_info,
-//       club_active_info: e.club_active_info,
-//       club_invite_info: e.club_invite_info,
-//       club_invite_link: e.club_invite_link,
-//       club_master: e.club_master,
-//       club_member: e.club_member,
-//       club_state: e.club_state,
-//       index: e.index,
-//     },
 
 const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
   const [clubName, setClubName] = useState('');
@@ -36,7 +24,7 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
     handleCloseButtonTabbed();
     setIsSave(false);
     console.log('save start');
-    await club.save();
+    // await club.save();
     setIsSave(true);
   };
 

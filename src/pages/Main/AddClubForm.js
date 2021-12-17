@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import './Main.css';
 
@@ -35,7 +35,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
     console.log('save start');
   };
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="clubdetail">

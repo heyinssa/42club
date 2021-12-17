@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
+
 // import background from '../../images/background.png';
 import background2 from '../../images/background2.png';
 
