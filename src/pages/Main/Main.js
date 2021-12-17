@@ -142,7 +142,7 @@ const Main = () => {
       </Helmet>
       <div
         // className="Container"
-        className={isClubTabbed ? 'BlockScroll Container' : 'Container'}
+        className="Container"
         style={{
           backgroundImage: `url(${background2})`,
         }}
