@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# 42 Club List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![npm](https://img.shields.io/npm/v/npm?style=flat)
+![42seoul](https://img.shields.io/badge/-42Seoul-325916?logo=42&logoColor=white&style=flat)
+![react](https://img.shields.io/badge/-ReactJs-40AEF0?logo=react&logoColor=white&style=flat)
 
-## Available Scripts
+<br/>
+안녕하세요!
 
-In the project directory, you can run:
+Google Spreadsheet API를 활용한 동아리 관리 페이지 입니다!
 
-### `npm start`
+기존에 구글 spreadsheet를 활용해서 동아리를 관리하는 것에 불편한 점이 많아, 간단한 페이지를 제작하였습니다!
+버그 등은 본 레포지토리에 이슈로 등록하거나 slack id(suhshin)으로 메세지 부탁드립니다 :)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## | http://betti.kr:9003
 
-### `npm test`
+<br/>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 개발 목적
 
-### `npm run build`
+- 모바일 환경에서 spreadsheet의 사용성이 너무 불편
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 많은 사람들이 수정가능하다 보니, 데이터가 잘못 수정 되었을 때, 복구 지점을 잡기 힘듦
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/>
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 핵심기능
 
-### `npm run eject`
+- 구글 스프레드 시트 연동
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 동아리 검색
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 동아리 추가
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 기존 동아리 내용 수정
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>
 
-## Learn More
+## Release note (2021.12.19)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 1차 배포
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Comming soon
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 신규 동아리 카테고리
+- 기존 동아리 수정 범위 추가 ( 동아리 이름, 마스터 등)
+- modal 하위 레이어 스크롤 방지
+- 디자인 업데이트
