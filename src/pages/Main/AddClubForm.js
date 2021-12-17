@@ -1,24 +1,12 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { Formik, Form, Field, useFormik, useFormikContext } from 'formik';
+import { useFormik } from 'formik';
 import './Main.css';
-
-//     club: {
-//       club_name: e.club_name,
-//       club_info: e.club_info,
-//       club_active_info: e.club_active_info,
-//       club_invite_info: e.club_invite_info,
-//       club_invite_link: e.club_invite_link,
-//       club_master: e.club_master,
-//       club_member: e.club_member,
-//       club_state: e.club_state,
-//       index: e.index,
-//     },
 
 const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
   const [isSave, setIsSave] = useState(false);
+  let club;
 
   const formik = useFormik({
     initialValues: {
@@ -34,20 +22,22 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      club = { ...values };
+      addClubRow(club);
+      formik.resetForm();
     },
   });
 
   const handleSaveClubButton = async (event) => {
     handleCloseButtonTabbed();
-    setIsSave(false);
+
     console.log('save start');
-    addClubRow();
-    setIsSave(true);
-    formik.resetForm();
   };
 
   useEffect(() => {
-    console.log(isSave);
+    if (isSave) {
+      // formik.resetForm();
+    }
   }, []);
 
   return (
@@ -94,45 +84,45 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
             <div>
               <Icon className="icon_width" name="users" />
               <input
-                id="club_name"
-                name="club_name"
+                id="club_master"
+                name="club_master"
                 type="string"
                 onChange={formik.handleChange}
-                value={formik.values.club_name}
-                placeholder="club name"
+                value={formik.values.club_master}
+                placeholder="club master"
               />
             </div>
             <div>
               <Icon className="icon_width" name="linkify" />
               <input
-                id="club_name"
-                name="club_name"
+                id="club_invite_link"
+                name="club_invite_link"
                 type="string"
                 onChange={formik.handleChange}
-                value={formik.values.club_name}
-                placeholder="club name"
+                value={formik.values.club_invite_link}
+                placeholder="club invite_link"
               />
             </div>
             <div>
               <Icon className="icon_width" name="mail" />
               <input
-                id="club_name"
-                name="club_name"
+                id="club_invite_dm"
+                name="club_invite_dm"
                 type="string"
                 onChange={formik.handleChange}
-                value={formik.values.club_name}
-                placeholder="club name"
+                value={formik.values.club_invite_dm}
+                placeholder="club invite_dm"
               />
             </div>
             <div>
               <Icon className="icon_width" name="marker" />
               <input
-                id="club_name"
-                name="club_name"
+                id="club_slack_chanel"
+                name="club_slack_chanel"
                 type="string"
                 onChange={formik.handleChange}
-                value={formik.values.club_name}
-                placeholder="club name"
+                value={formik.values.club_slack_chanel}
+                placeholder="club slack_chanel"
               />
             </div>
           </div>

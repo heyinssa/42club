@@ -17,13 +17,13 @@ const Main = () => {
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
   const [isAddClubTabbed, setIsAddClubTabbed] = useState(false);
+  const [sheet, setSheet] = useState([]);
   const [rows, setRows] = useState([]);
   const [club, setClub] = useState([]);
   const [clubList1, setClubList1] = useState([]);
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
   const [searchText, setSearchText] = useState('');
-  let sheet;
   // const modalRef = useRef(null);
 
   const init = async () => {
@@ -44,8 +44,8 @@ const Main = () => {
         const _sheet = _doc.sheetsByIndex[0];
         const _rows = await _sheet.getRows();
         setRows(_rows);
+        setSheet(_sheet);
         await divideClubList(_rows, null);
-        sheet = _sheet;
       } catch (e) {
         console.error('Error: ', e);
       }
