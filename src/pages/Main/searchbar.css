@@ -41,7 +41,8 @@
   font-size: 20px;
 }
 
-.searchButton Icon {
-  box-shadow: 0px;
+.icon.searchicon {
+  margin: auto;
+  position: relative;
   background: transparent;
 }

@@ -4,8 +4,8 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
-import { Helmet } from 'react-helmet';
-import MetaTags from 'react-meta-tags';
+// import { Helmet } from 'react-helmet';
+// import MetaTags from 'react-meta-tags';
 import { AddClubForm, ClubDetail } from '..';
 
 // import background from '../../images/background.png';
@@ -141,13 +141,6 @@ const Main = () => {
           backgroundImage: `url(${background2})`,
         }}
       >
-        <Helmet>
-          <MetaTags>
-            <meta id="og-title" property="og:title" content="42 club list" />
-            <meta id="og-image" property="og:image" content={background2} />
-            <meta name="theme-color" content="#4285f4" />
-          </MetaTags>
-        </Helmet>
         <div className="blur">
           <div className="header">
             <h1 className="title"> 42 Club List </h1>
@@ -171,7 +164,7 @@ const Main = () => {
                     className="searchButton"
                     onClick={handleSearchButtonTabbed}
                   >
-                    <Icon name="search" color="black" />
+                    <Icon className="searchicon" name="search" color="black" />
                   </button>
                 </div>
               </div>
