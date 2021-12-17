@@ -4,8 +4,6 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
-import { Helmet } from 'react-helmet';
-import MetaTags from 'react-meta-tags';
 import { AddClubForm, ClubDetail } from '..';
 
 // import background from '../../images/background.png';
