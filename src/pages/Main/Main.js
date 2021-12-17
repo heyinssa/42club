@@ -141,17 +141,6 @@ const Main = () => {
           backgroundImage: `url(${background2})`,
         }}
       >
-        <Helmet>
-          <MetaTags>
-            <meta id="og-title" property="og:title" content="42 club list" />
-            <meta id="og-image" property="og:image" content={background2} />
-            <meta
-              name="viewport"
-              content="width=device-width, minimal-ui, viewport-fit=cover"
-            ></meta>
-            <meta name="theme-color" content="#4285f4" />
-          </MetaTags>
-        </Helmet>
         <div className="blur">
           <div className="header">
             <h1 className="title"> 42 Club List </h1>
