@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+        app:
+                image: petercha2000/42club:0.0.1
+                ports:
+                        - 9003:80
+

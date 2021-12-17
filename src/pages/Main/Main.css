@@ -1,0 +1,269 @@
+.Container {
+  height: 100%;
+  min-height: 100vh;
+  /* background-image: url('https://cdn.pixabay.com/photo/2016/04/06/10/08/pink-1311251_1280.jpg'); */
+  /* background-repeat: repeat; */
+  background-size: cover;
+  /* background-position: center; */
+  background-position: top;
+}
+
+.blur {
+  height: 100%;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+}
+
+.Main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 10px 0;
+  /* margin-top: 60px; */
+}
+
+.BlockScroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.searchButton Icon {
+  box-shadow: 0px;
+  background: transparent;
+}
+
+.ui.list.display {
+  margin: 0;
+  padding: 0;
+}
+
+.addclub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  color: white;
+}
+
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(#ffffffff, #fffffffa, #ffffffdc, #ffffffcc);
+  z-index: 9;
+  box-shadow: 0px 3px 4px #00000020;
+  /* margin: auto; */
+}
+
+.title {
+  text-align: center;
+  height: 60px;
+  margin: auto;
+  line-height: 60px;
+  color: rgb(53, 53, 53);
+  z-index: 9;
+}
+
+.subtitle {
+  /* width: 100%; */
+  margin: auto;
+  text-align: right;
+  color: rgb(53, 53, 53);
+  z-index: 9;
+}
+
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .sticky {
+    position: -webkit-sticky; /* 사파리 브라우저 지원 */
+    position: sticky;
+    top: 24px;
+  }
+}
+
+.card-box {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  box-shadow: 1px 1px 4px #00000015;
+  height: auto;
+  width: 90vw;
+  max-width: 1024px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  color: black;
+  margin: 10px 0;
+}
+
+.card-box-title {
+  width: 100%;
+  text-align: left;
+}
+
+.card-box-desc {
+  color: rgb(121, 121, 121);
+}
+
+.clubinfo {
+  border: 0px solid;
+  width: 100%;
+  /* height: max-content; */
+  background: transparent;
+}
+
+.clubinfo::-webkit-scrollbar {
+  display: none;
+}
+.clubdetail {
+  width: 85%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  margin: auto;
+}
+
+.clubdetail-body-box {
+  width: 100%;
+  background: white;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  padding: 5%;
+  /* background: rgba(255, 255, 255, 0.5); */
+  box-shadow: 1px 1px 4px #00000015;
+}
+
+.clubdetail-body-box-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.clubdetail-body-box-contents-inputtitle {
+  font-size: 1.7rem;
+}
+.clubdetail-body-box-contents input {
+  border: 0px solid;
+  background: transparent;
+  /* font-size: 1rem; */
+}
+
+.clubdetail-title-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.hidden {
+  display: none;
+  color: transparent;
+}
+
+.clubdetail-title-box-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clubdetail-title-box-contents span {
+  color: #4d4d4d;
+}
+
+.clubdetail-title-box-contents h1 {
+  /* color: white; */
+  margin: 0;
+  text-align: center;
+}
+.clubdetail-title-box-closebutton {
+  right: 10%;
+  top: 3%;
+  background: #ffffff00;
+  color: black;
+  border: 0px;
+  cursor: pointer;
+  transition: all ease 1s;
+}
+
+.clubdetail-title-box-closebutton:hover {
+  transform: rotate(-180deg);
+  color: red;
+}
+
+.ui.card.card_width {
+  min-width: 288px;
+  margin: auto;
+  border: 0px;
+}
+
+.add-club-button {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  bottom: 3%;
+  right: 5%;
+  z-index: 3;
+  border-radius: 100%;
+  border: 0px solid;
+  background: #cdb1da;
+  box-shadow: 1px 1px #00000013;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon.iconnomargin {
+  margin: 0;
+}
+
+.icon.icon_width {
+  width: 20px;
+  margin-right: 7px;
+}
+
+.save-club-button {
+  width: 100%;
+  max-width: 330px;
+  height: 35px;
+  border: 0px solid;
+  font-size: 1.5rem;
+  background: rgb(175, 110, 218);
+  line-height: 1.5rem;
+  border-radius: 5px;
+  color: white;
+}
+
+.loader-box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background: #00000077;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.hidden {
+  display: none;
+}
