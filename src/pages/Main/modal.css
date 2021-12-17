@@ -7,6 +7,9 @@
 
 .modal-hide {
   top: 100%;
+  width: 100%;
+  /* animation: slideOut 0.8s linear; */
+  transition: 0.2s ease-out;
 }
 
 .bgtest {

@@ -5,7 +5,6 @@ import { useFormik } from 'formik';
 import './Main.css';
 
 const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
-  const [isSave, setIsSave] = useState(false);
   let club;
 
   const formik = useFormik({
@@ -34,11 +33,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
     console.log('save start');
   };
 
-  useEffect(() => {
-    if (isSave) {
-      // formik.resetForm();
-    }
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="clubdetail">
