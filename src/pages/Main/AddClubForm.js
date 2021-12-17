@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import './Main.css';
@@ -14,8 +14,10 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
       club_active_info: '',
       club_invite_info: '',
       club_invite_link: '',
+      club_invite_dm: '',
       club_master: '',
       club_member: '',
+      club_slack_chanel: '',
       club_state: '',
       index: '',
     },
@@ -123,14 +125,14 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
           </div>
         </form>
       </div>
-      <Button
+      <button
         form="my-form"
         type="submit"
         className="save-club-button"
         onClick={handleSaveClubButton}
       >
-        <Button.Content visible> Save </Button.Content>
-      </Button>
+        Save
+      </button>
     </div>
   );
 };
