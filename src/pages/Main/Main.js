@@ -205,7 +205,7 @@ const Main = () => {
               )}
               {clubList3.length != 0 && (
                 <div>
-                  <h3 className="subtitle sticky"> 기타 </h3>
+                  <h3 className="subtitle sticky"> 기타 ! </h3>
                   <ClubList
                     clubList={clubList3}
                     setClub={setClub}
