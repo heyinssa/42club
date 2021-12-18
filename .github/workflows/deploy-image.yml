@@ -40,4 +40,4 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          ./deploy.sh
+          ./deploy-42club.sh
