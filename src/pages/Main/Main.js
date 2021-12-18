@@ -14,7 +14,6 @@ import './Main.css';
 import './searchbar.css';
 import './footer.css';
 import './modal.css';
-import { height } from 'styled-system';
 
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
@@ -29,7 +28,6 @@ const Main = () => {
   const [searchText, setSearchText] = useState('');
 
   const handlers = useSwipeable({
-    // onSwiped: (eventData) => console.log('User Swiped!', eventData),
     onSwipedDown: (eventData) => {
       console.log('swipe down!', eventData);
       setIsClubTabbed(false);
@@ -139,6 +137,7 @@ const Main = () => {
   useEffect(() => {
     setIsSave(false);
     init();
+    if (isClubTabbed) setClub([]);
   }, []);
 
   return (
@@ -236,18 +235,18 @@ const Main = () => {
       )}
       <div
         className={isClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
-        // onClick={handleCloseButtonTabbed}
       >
         <div {...handlers} className="bgtest">
-          <ClubDetail
-            club={club}
-            handleCloseButtonTabbed={handleCloseButtonTabbed}
-          />
+          {isClubTabbed && (
+            <ClubDetail
+              club={club}
+              handleCloseButtonTabbed={handleCloseButtonTabbed}
+            />
+          )}
         </div>
       </div>
       <div
         className={isAddClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
-        // onClick={handleCloseButtonTabbed}
       >
         <AddClubForm
           addClubRow={addClubRow}

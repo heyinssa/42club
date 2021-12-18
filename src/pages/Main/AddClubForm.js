@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-// import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import './Main.css';
 
@@ -22,7 +21,6 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
       index: '',
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       club = { ...values };
       addClubRow(club);
       formik.resetForm();
@@ -34,8 +32,6 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
 
     console.log('save start');
   };
-
-  // useEffect(() => {}, []);
 
   return (
     <div className="clubdetail">
