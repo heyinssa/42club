@@ -87,8 +87,20 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
             </List.Content>
           </List.Item>
         </List>
-        <div>{club.club_active_info}</div>
-        <div>{club.club_invite_info}</div>
+        <TextareaAutosize
+          className="clubinfo"
+          type="text"
+          name="club_active_info"
+          value={club.club_active_info}
+          // onChange={handleClubInfo}
+        />
+        <TextareaAutosize
+          className="clubinfo"
+          type="text"
+          name="club_invite_info"
+          value={club.club_invite_info}
+          // onChange={handleClubInfo}
+        />
       </div>
       <button className="save-club-button" onClick={handleSaveClubButton}>
         Save

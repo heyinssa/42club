@@ -20,9 +20,10 @@
   border: 1px solid #dac8e2;
   border-right: none;
   padding: 5px;
-  height: 30px;
+  height: 40px;
   outline: none;
   color: #1b1b1b;
+  font-size: 1.5rem;
 }
 
 .searchTerm:focus {
@@ -30,8 +31,8 @@
 }
 
 .searchButton {
-  width: 40px;
-  height: 30px;
+  width: 50px;
+  height: 40px;
   border: 1px solid #dac8e2;
   background: rgba(255, 255, 255, 0.6);
   text-align: center;

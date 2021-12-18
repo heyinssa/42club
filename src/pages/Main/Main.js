@@ -5,6 +5,7 @@ import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
+import { useSwipeable } from 'react-swipeable';
 
 // import background from '../../images/background.png';
 import background2 from '../../images/background2.png';
@@ -25,6 +26,14 @@ const Main = () => {
   const [clubList2, setClubList2] = useState([]);
   const [clubList3, setClubList3] = useState([]);
   const [searchText, setSearchText] = useState('');
+
+  const handlers = useSwipeable({
+    // onSwiped: (eventData) => console.log('User Swiped!', eventData),
+    onSwipedDown: (eventData) => {
+      console.log('swipe down!', eventData);
+      setIsClubTabbed(false);
+    },
+  });
 
   const init = async () => {
     const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
@@ -132,7 +141,7 @@ const Main = () => {
   }, []);
 
   return (
-    <>
+    <div className="asdf">
       <div
         className="Container"
         style={{
@@ -221,7 +230,7 @@ const Main = () => {
         className={isClubTabbed ? 'modal modal-visible' : 'modal modal-hide'}
         // onClick={handleCloseButtonTabbed}
       >
-        <div className="bgtest">
+        <div {...handlers} className="bgtest">
           <ClubDetail
             club={club}
             handleCloseButtonTabbed={handleCloseButtonTabbed}
@@ -240,7 +249,7 @@ const Main = () => {
       <button className="add-club-button" onClick={handleAddClubTabbed}>
         <Icon className="iconnomargin" name="plus" />
       </button>
-    </>
+    </div>
   );
 };
 

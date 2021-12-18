@@ -75,6 +75,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
             type="string"
             onChange={formik.handleChange}
             value={formik.values.club_info}
+            className="clubdetail-body-box-contents-body"
             placeholder="club info"
           />
           <div>
@@ -86,6 +87,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
                 type="string"
                 onChange={formik.handleChange}
                 value={formik.values.club_master}
+                className="clubdetail-body-box-contents-body"
                 placeholder="club master"
               />
             </div>
@@ -97,6 +99,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
                 type="string"
                 onChange={formik.handleChange}
                 value={formik.values.club_invite_link}
+                className="clubdetail-body-box-contents-body"
                 placeholder="club invite_link"
               />
             </div>
@@ -108,6 +111,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
                 type="string"
                 onChange={formik.handleChange}
                 value={formik.values.club_invite_dm}
+                className="clubdetail-body-box-contents-body"
                 placeholder="club invite_dm"
               />
             </div>
@@ -119,6 +123,7 @@ const ClubDetail = ({ addClubRow, handleCloseButtonTabbed }) => {
                 type="string"
                 onChange={formik.handleChange}
                 value={formik.values.club_slack_chanel}
+                className="clubdetail-body-box-contents-body"
                 placeholder="club slack_chanel"
               />
             </div>

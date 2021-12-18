@@ -17,6 +17,7 @@
     "react-meta-tags": "^1.0.1",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "react-swipeable": "^6.2.0",
     "react-textarea-autosize": "^8.3.3",
     "sass": "^1.44.0",
     "scss": "^0.2.4",
