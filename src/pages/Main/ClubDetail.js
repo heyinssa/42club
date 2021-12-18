@@ -39,12 +39,8 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           onClick={handleCloseButtonTabbed}
         />
       </div>
-      <div>
-        <form
-          className="clubdetail-body-box"
-          id="my-form2"
-          onSubmit={formik.handleSubmit}
-        >
+      <div className="clubdetail-body-box">
+        <form id="my-form2" onSubmit={formik.handleSubmit}>
           <List>
             <TextareaAutosize
               id="club_info"
