@@ -14,6 +14,7 @@ import './Main.css';
 import './searchbar.css';
 import './footer.css';
 import './modal.css';
+import { height } from 'styled-system';
 
 const Main = () => {
   const [isSave, setIsSave] = useState(false);
@@ -141,7 +142,14 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="asdf">
+    <div
+      className="asdf"
+      style={
+        isClubTabbed
+          ? { height: '100vh', overflow: 'scroll' }
+          : { height: '100%' }
+      }
+    >
       <div
         className="Container"
         style={{

@@ -92,6 +92,7 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           type="text"
           name="club_active_info"
           value={club.club_active_info}
+          placeholder="클럽 활동 정보를 입력해주세요!"
           // onChange={handleClubInfo}
         />
         <TextareaAutosize
@@ -99,6 +100,7 @@ const ClubDetail = ({ club, handleCloseButtonTabbed }) => {
           type="text"
           name="club_invite_info"
           value={club.club_invite_info}
+          placeholder="클럽 초대 정보를 입력해주세요!"
           // onChange={handleClubInfo}
         />
       </div>
