@@ -28,8 +28,9 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: petercha2000/42club:0.0.1
-        
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using key
