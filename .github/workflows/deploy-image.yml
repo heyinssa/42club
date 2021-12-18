@@ -28,3 +28,16 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: petercha2000/42club:0.0.1
+        
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          ./deploy.sh
