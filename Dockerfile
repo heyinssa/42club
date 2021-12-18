@@ -3,7 +3,6 @@ FROM node:13.12.0-alpine as build
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
-ENV PUBLIC_URL=/42club
 
 COPY package*.json ./
 
