@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "http://heyinsa.kr/42club",
+  "homepage": "/42club/z",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
