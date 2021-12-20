@@ -7,8 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     platform: linux/amd64
-    ports:
-      - 9002:80
     restart: always
     networks:
       gate_net:
