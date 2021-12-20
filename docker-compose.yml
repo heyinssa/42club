@@ -1,8 +1,12 @@
 version: "3.7"
 
 services:
-        app:
-                image: petercha2000/42club:0.0.1
-                ports:
-                        - 9003:80
-
+  app:
+    image: petercha2000/42club:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    ports:
+      - 80:80
+    restart: always

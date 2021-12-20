@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={'42club'}>
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>

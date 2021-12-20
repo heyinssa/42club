@@ -6,9 +6,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package*.json ./
 
-RUN npm ci --silent
-
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm ci --silent \
+    && npm install react-scripts@3.4.1 -g --silent
 
 COPY . ./
 
@@ -20,7 +19,7 @@ FROM nginx:stable-alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
 
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY proxy/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
