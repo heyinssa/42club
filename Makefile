@@ -10,10 +10,10 @@ all		: build push clean
 server	: deploy clean
 
 build	:
-	sudo docker-compose build
+	sudo docker-compose -f docker-compose.prod.yml build
 
 push	:
-	sudo docker-compose push
+	sudo docker-compose -f docker-compose.prod.yml push
 
 clean	:
 	@sudo docker rmi $(shell (sudo docker images --filter "dangling=true" -q --no-trunc)) 2>/dev/null | cat
