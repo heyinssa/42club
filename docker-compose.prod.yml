@@ -5,7 +5,7 @@ services:
     image: petercha2000/42club:0.0.1
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     platform: linux/amd64
     restart: always
     networks:

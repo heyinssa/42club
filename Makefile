@@ -7,7 +7,7 @@ IMAGES	=	petercha2000/42club:0.0.1
 
 all		: build push clean
 
-server	: deploy clean
+prod	: deploy clean
 
 build	:
 	sudo docker-compose -f docker-compose.prod.yml build
@@ -20,12 +20,12 @@ clean	:
 
 fclean	: clean
 	sudo docker-compose -p $(PROJECT) down
-	sudo docker-compose -p $(PROJECT) rm
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT) rm
 	sudo docker rmi $(IMAGES)
 
 deploy	:
-	sudo docker-compose pull
-	sudo docker-compose -p $(PROJECT) up -d
+	sudo docker-compose -f docker-compose.prod.yml pull
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT) up -d
 
 re		: fclean all
 
