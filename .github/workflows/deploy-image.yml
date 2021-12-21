@@ -22,8 +22,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and Push
-      run: |
-          make
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile.prod
+        push: true
+        tags: petercha2000/42club:0.0.1
 
   deploy:
     needs: build
