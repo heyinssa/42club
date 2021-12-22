@@ -216,7 +216,8 @@ const Main = () => {
                 <div>no Result!</div>
               )}
               <div className="footer">
-                <div>Contact : @suhshin</div>
+                <div>Contact : @seunpark</div>
+                <div>Made by : @suhshin</div>
               </div>
             </div>
           )}
