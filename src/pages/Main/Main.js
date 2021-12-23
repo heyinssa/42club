@@ -16,6 +16,8 @@ import './footer.css';
 import './modal.css';
 
 const Main = () => {
+  const spreadsheet_id = '1tqVETbU6U41JIeM2-NbddKVfnV_S-oWT06IYjfRNl0I';
+
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
   const [isAddClubTabbed, setIsAddClubTabbed] = useState(false);
@@ -35,7 +37,7 @@ const Main = () => {
   });
 
   const init = async () => {
-    const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
+    const SPREADSHEET_ID = spreadsheet_id;
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
     const authGoogleSheet = async () => {
