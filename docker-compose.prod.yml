@@ -6,15 +6,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
+    env_file:
+      - /home/ubuntu/Production/42Club/.env
     platform: linux/amd64
     restart: always
     networks:
-      gate_net:
+      web_gate:
         aliases:
           - 42club
 
 networks:
-  gate_net:
+  web_gate:
     driver: bridge
     external: true
 
