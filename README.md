@@ -14,7 +14,7 @@ Google Spreadsheet API를 활용한 동아리 관리 페이지 입니다!
 
 <br/>
 
-## | http://betti.kr:9003
+## | https://heyinsa.kr/42club
 
 <br/>
 <br/>
