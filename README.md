@@ -5,7 +5,7 @@
 ![react](https://img.shields.io/badge/-ReactJs-40AEF0?logo=react&logoColor=white&style=flat)
 
 <br/>
-안녕하세요!
+안녕하세요!!
 
 Google Spreadsheet API를 활용한 동아리 관리 페이지 입니다!
 
