@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
@@ -16,8 +15,6 @@ import './footer.css';
 import './modal.css';
 
 const Main = () => {
-  const spreadsheet_id = '1tqVETbU6U41JIeM2-NbddKVfnV_S-oWT06IYjfRNl0I';
-
   const [isSave, setIsSave] = useState(false);
   const [isClubTabbed, setIsClubTabbed] = useState(false);
   const [isAddClubTabbed, setIsAddClubTabbed] = useState(false);
@@ -37,12 +34,15 @@ const Main = () => {
   });
 
   const init = async () => {
-    const SPREADSHEET_ID = spreadsheet_id;
+    const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
     const authGoogleSheet = async () => {
       try {
-        await _doc.useServiceAccountAuth(gs_creds);
+        await _doc.useServiceAccountAuth({
+          client_email: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL,
+          private_key: process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY,
+        });
         await _doc.loadInfo();
       } catch (e) {
         console.error('Error: ', e);
