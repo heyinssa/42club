@@ -5,17 +5,17 @@ IMAGES	=	petercha2000/42club:0.0.1
 
 # Rules =========================
 
-all		: build clean
+all		: build
 
 .PHONY:	build
-build	:
+build	: clean
 	sudo docker-compose -f docker-compose.prod.yml build
 	sudo docker-compose -f docker-compose.prod.yml push
 
 .PHONY:	prod
 prod	: clean
 	sudo docker-compose -f docker-compose.prod.yml pull
-	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT) up -d
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod up -d
 
 .PHONY:	clean
 clean	:
@@ -23,6 +23,6 @@ clean	:
 
 .PHONY:	fclean
 fclean	: clean
-	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT) down
-	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT) rm
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod down
+	sudo docker-compose -f docker-compose.prod.yml -p $(PROJECT)-prod rm
 	sudo docker rmi $(IMAGES)
