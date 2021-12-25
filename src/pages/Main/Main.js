@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Icon } from 'semantic-ui-react';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
-import gs_creds from '../../spreadsheet-react-6e8623ac213c.json';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
@@ -40,7 +39,10 @@ const Main = () => {
 
     const authGoogleSheet = async () => {
       try {
-        await _doc.useServiceAccountAuth(gs_creds);
+        await _doc.useServiceAccountAuth({
+          client_email: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL,
+          private_key: process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY,
+        });
         await _doc.loadInfo();
       } catch (e) {
         console.error('Error: ', e);
