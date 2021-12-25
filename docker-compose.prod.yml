@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     env_file:
-      - /home/ubuntu/Production/42Club/.env
+      - .env
     platform: linux/amd64
     restart: always
     networks:
