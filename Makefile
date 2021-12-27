@@ -9,7 +9,7 @@ all		: build
 
 .PHONY:	build
 build	: clean
-	sudo docker-compose -f docker-compose.prod.yml build
+	sudo docker-compose -f docker-compose.prod.yml --env-file .env build
 	sudo docker-compose -f docker-compose.prod.yml push
 
 .PHONY:	prod

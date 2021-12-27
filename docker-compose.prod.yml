@@ -6,8 +6,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    env_file:
-      - .env
+      args:
+          PUBLIC_URL: $PUBLIC_URL
+          REACT_APP_SPREADSHEET_ID: $REACT_APP_SPREADSHEET_ID
+          REACT_APP_SHEET_ID: $REACT_APP_SHEET_ID
+          REACT_APP_GOOGLE_CLIENT_EMAIL: $REACT_APP_GOOGLE_CLIENT_EMAIL
+          REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY: $REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY
     platform: linux/amd64
     restart: always
     networks:
