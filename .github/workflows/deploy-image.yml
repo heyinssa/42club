@@ -29,11 +29,11 @@ jobs:
         push: true
         tags: petercha2000/42club:0.0.1
         build-args: |
-          PUBLIC_URL="${{ secrets.PUBLIC_URL }}"
-          REACT_APP_SPREADSHEET_ID="${{ secrets.REACT_APP_SPREADSHEET_ID }}"
-          REACT_APP_SHEET_ID="${{ secrets.REACT_APP_SHEET_ID }}"
-          REACT_APP_GOOGLE_CLIENT_EMAIL="${{ secrets.REACT_APP_GOOGLE_CLIENT_EMAIL }}"
-          REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY="${{ secrets.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY }}"
+          REACT_APP_SPREADSHEET_ID=${{ secrets.REACT_APP_SPREADSHEET_ID }}
+          REACT_APP_SHEET_ID=${{ secrets.REACT_APP_SHEET_ID }}
+          REACT_APP_GOOGLE_CLIENT_EMAIL=${{ secrets.REACT_APP_GOOGLE_CLIENT_EMAIL }}
+          REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY=${{ secrets.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY }}
+          PUBLIC_URL=${{ secrets.PUBLIC_URL }}
 
   deploy:
     needs: build
