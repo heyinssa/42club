@@ -28,7 +28,7 @@ jobs:
         file: ./Dockerfile.prod
         push: true
         tags: petercha2000/42club:0.0.1
-        build-args: |
+        build-args:
           PUBLIC_URL=${{ secrets.PUBLIC_URL }}
           REACT_APP_SPREADSHEET_ID=${{ secrets.REACT_APP_SPREADSHEET_ID }}
           REACT_APP_SHEET_ID=${{ secrets.REACT_APP_SHEET_ID }}
