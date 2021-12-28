@@ -186,7 +186,7 @@ const Main = () => {
               </div>
               {clubList1.length != 0 && (
                 <div>
-                  <h3 className="subtitle sticky"> 상시 모집 </h3>
+                  <h3 className="subtitle sticky"> 상시 모집 ! </h3>
                   <ClubList
                     clubList={clubList1}
                     setClub={setClub}
