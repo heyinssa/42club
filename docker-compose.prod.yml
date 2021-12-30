@@ -15,9 +15,7 @@ services:
     platform: linux/amd64
     restart: always
     networks:
-      web_gate:
-        aliases:
-          - 42club
+      - web_gate
 
 networks:
   web_gate:
