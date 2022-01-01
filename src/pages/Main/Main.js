@@ -4,8 +4,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet';
 import Loader from 'react-loader-spinner';
 import ClubList from './ClubList';
 import { AddClubForm, ClubDetail } from '..';
-import { useSwipeable } from 'react-swipeable';
-
+import { useSwipeable } from 'react-swipeable'; 
 // import background from '../../images/background.png';
 import background2 from '../../images/background2.png';
 
@@ -38,6 +37,7 @@ const Main = () => {
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
     const authGoogleSheet = async () => {
+		console.log("google service private key", process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY);
       try {
         await _doc.useServiceAccountAuth({
           client_email: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL,
