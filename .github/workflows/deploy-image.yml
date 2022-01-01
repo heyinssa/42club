@@ -34,7 +34,6 @@ jobs:
           REACT_APP_GOOGLE_CLIENT_EMAIL=${{ secrets.REACT_APP_GOOGLE_CLIENT_EMAIL }}
           REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY=${{ secrets.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY }}
           PUBLIC_URL=${{ secrets.PUBLIC_URL }}
-          HI="hihihi"
 
   deploy:
     needs: build
