@@ -37,11 +37,10 @@ const Main = () => {
     const _doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
     const authGoogleSheet = async () => {
-		console.log("google service private key", process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY);
       try {
         await _doc.useServiceAccountAuth({
           client_email: process.env.REACT_APP_GOOGLE_CLIENT_EMAIL,
-          private_key: process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY,
+          private_key: process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY.replace(/;/g, '\n'),
         });
         await _doc.loadInfo();
       } catch (e) {
